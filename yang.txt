@@ -1,0 +1,1373 @@
+
+[2016-05-28 18:29:58.523] nc_util.c:235 malloc(760) at 0x20b9250 @ nc_conf.c:773
+[2016-05-28 18:29:58.524] nc_util.c:235 malloc(48) at 0x20b95f0 @ nc_array.c:59
+[2016-05-28 18:29:58.524] nc_util.c:235 malloc(2496) at 0x20b9a90 @ nc_array.c:59
+[2016-05-28 18:29:58.524] nc_conf.c:806 opened conf 'conf/nutcracker.yml'
+[2016-05-28 18:29:58.524] nc_conf.c:962 conf 'conf/nutcracker.yml' has valid tokens
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 1 depth 0 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 3 depth 0 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 9 depth 0 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.524] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.525] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 10 depth 1 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 4 depth 0 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:1030 next event 2 depth 0 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:565 next begin event 1
+[2016-05-28 18:29:58.526] nc_conf.c:565 next begin event 3
+[2016-05-28 18:29:58.526] nc_conf.c:565 next begin event 9
+[2016-05-28 18:29:58.526] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:475 push 'alpha'
+[2016-05-28 18:29:58.526] nc_conf.c:512 conf handler on 'alpha'
+[2016-05-28 18:29:58.526] nc_util.c:235 malloc(1472) at 0x20caec0 @ nc_array.c:59
+[2016-05-28 18:29:58.526] nc_conf.c:230 init conf pool 0x20b9a90, 'alpha'
+[2016-05-28 18:29:58.526] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:475 push 'listen'
+[2016-05-28 18:29:58.526] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.526] nc_conf.c:475 push '192.168.1.111:22121'
+[2016-05-28 18:29:58.526] nc_conf.c:521 conf handler on listen: 192.168.1.111:22121
+[2016-05-28 18:29:58.526] nc_conf.c:498 pop '192.168.1.111:22121'
+[2016-05-28 18:29:58.526] nc_util.c:281 free(0x20cb4f0) @ nc_string.c:54
+[2016-05-28 18:29:58.526] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:29:58.526] nc_util.c:281 free(0x20cb4d0) @ nc_string.c:54
+[2016-05-28 18:29:58.526] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'hash'
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb5b0) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb590) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20b9790) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb4f0) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'true'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on auto_eject_hosts: true
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'true'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb5b0) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb590) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'redis'
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'false'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on redis: false
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'false'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20b9790) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb520) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'server_retry_timeout'
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push '2000'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on server_retry_timeout: 2000
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop '2000'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb4d0) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'server_retry_timeout'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb5b0) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'server_failure_limit'
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push '1'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on server_failure_limit: 1
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop '1'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb5e0) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop 'server_failure_limit'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb520) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:475 push 'servers'
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.527] nc_conf.c:475 push '127.0.0.1:11210:1'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on servers: 127.0.0.1:11210:1
+[2016-05-28 18:29:58.527] nc_conf.c:133 init conf server 0x20caec0
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop '127.0.0.1:11210:1'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb4d0) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.527] nc_conf.c:475 push '127.0.0.1:11211:1'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on servers: 127.0.0.1:11211:1
+[2016-05-28 18:29:58.527] nc_conf.c:133 init conf server 0x20caf78
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop '127.0.0.1:11211:1'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb640) @ nc_string.c:54
+[2016-05-28 18:29:58.527] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.527] nc_conf.c:475 push '127.0.0.1:11212:1'
+[2016-05-28 18:29:58.527] nc_conf.c:521 conf handler on servers: 127.0.0.1:11212:1
+[2016-05-28 18:29:58.527] nc_conf.c:133 init conf server 0x20cb030
+[2016-05-28 18:29:58.527] nc_conf.c:498 pop '127.0.0.1:11212:1'
+[2016-05-28 18:29:58.527] nc_util.c:281 free(0x20cb6a0) @ nc_string.c:54
+[2016-05-28 18:29:58.528] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.528] nc_conf.c:475 push '127.0.0.1:11213:1'
+[2016-05-28 18:29:58.528] nc_conf.c:521 conf handler on servers: 127.0.0.1:11213:1
+[2016-05-28 18:29:58.528] nc_conf.c:133 init conf server 0x20cb0e8
+[2016-05-28 18:29:58.528] nc_conf.c:498 pop '127.0.0.1:11213:1'
+[2016-05-28 18:29:58.528] nc_util.c:281 free(0x20cb700) @ nc_string.c:54
+[2016-05-28 18:29:58.528] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:29:58.528] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:29:58.528] nc_util.c:281 free(0x20b9790) @ nc_string.c:54
+[2016-05-28 18:29:58.528] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:29:58.528] nc_conf.c:498 pop 'alpha'
+[2016-05-28 18:29:58.528] nc_util.c:281 free(0x20b9770) @ nc_string.c:54
+[2016-05-28 18:29:58.528] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:29:58.528] nc_conf.c:475 push 'beta'
+[2016-05-28 18:29:58.528] nc_conf.c:512 conf handler on 'beta'
+[2016-05-28 18:29:58.528] nc_util.c:235 malloc(1472) at 0x20cb720 @ nc_array.c:59
+[2016-05-28 18:29:58.528] nc_conf.c:230 init conf pool 0x20b9bc8, 'beta'
+[2016-05-28 18:29:58.528] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:29:58.528] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.528] nc_conf.c:475 push 'listen'
+[2016-05-28 18:29:58.528] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.528] nc_conf.c:475 push '0.0.0.0:22122'
+[2016-05-28 18:29:58.528] nc_conf.c:521 conf handler on listen: 0.0.0.0:22122
+[2016-05-28 18:29:58.528] nc_conf.c:498 pop '0.0.0.0:22122'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbd10) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cb540) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'hash'
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:29:58.529] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbdc0) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbda0) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'hash_tag'
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push '{}'
+[2016-05-28 18:29:58.529] nc_conf.c:521 conf handler on hash_tag: {}
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop '{}'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbd80) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'hash_tag'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbd10) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:29:58.529] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbde0) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cb540) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'false'
+[2016-05-28 18:29:58.529] nc_conf.c:521 conf handler on auto_eject_hosts: false
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'false'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbd80) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbd10) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push 'timeout'
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.529] nc_conf.c:475 push '400'
+[2016-05-28 18:29:58.529] nc_conf.c:521 conf handler on timeout: 400
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop '400'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cbde0) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:498 pop 'timeout'
+[2016-05-28 18:29:58.529] nc_util.c:281 free(0x20cb540) @ nc_string.c:54
+[2016-05-28 18:29:58.529] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.530] nc_conf.c:475 push 'redis'
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.530] nc_conf.c:475 push 'true'
+[2016-05-28 18:29:58.530] nc_conf.c:521 conf handler on redis: true
+[2016-05-28 18:29:58.530] nc_conf.c:498 pop 'true'
+[2016-05-28 18:29:58.530] nc_util.c:281 free(0x20cbdc0) @ nc_string.c:54
+[2016-05-28 18:29:58.530] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:29:58.530] nc_util.c:281 free(0x20cbd80) @ nc_string.c:54
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:29:58.530] nc_conf.c:475 push 'servers'
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.530] nc_conf.c:475 push '192.168.1.111:7000:1 server1'
+[2016-05-28 18:29:58.530] nc_conf.c:521 conf handler on servers: 192.168.1.111:7000:1 server1
+[2016-05-28 18:29:58.530] nc_conf.c:133 init conf server 0x20cb720
+[2016-05-28 18:29:58.530] nc_conf.c:498 pop '192.168.1.111:7000:1 server1'
+[2016-05-28 18:29:58.530] nc_util.c:281 free(0x20cb4f0) @ nc_string.c:54
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.530] nc_conf.c:475 push '192.168.1.111:7001:1 server2'
+[2016-05-28 18:29:58.530] nc_conf.c:521 conf handler on servers: 192.168.1.111:7001:1 server2
+[2016-05-28 18:29:58.530] nc_conf.c:133 init conf server 0x20cb7d8
+[2016-05-28 18:29:58.530] nc_conf.c:498 pop '192.168.1.111:7001:1 server2'
+[2016-05-28 18:29:58.530] nc_util.c:281 free(0x20cb4f0) @ nc_string.c:54
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:29:58.530] nc_conf.c:475 push '192.168.1.111:7002:1 server3'
+[2016-05-28 18:29:58.530] nc_conf.c:521 conf handler on servers: 192.168.1.111:7002:1 server3
+[2016-05-28 18:29:58.530] nc_conf.c:133 init conf server 0x20cb890
+[2016-05-28 18:29:58.530] nc_conf.c:498 pop '192.168.1.111:7002:1 server3'
+[2016-05-28 18:29:58.530] nc_util.c:281 free(0x20cb4f0) @ nc_string.c:54
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:29:58.530] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:29:58.530] nc_util.c:281 free(0x20cbde0) @ nc_string.c:54
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:29:58.530] nc_conf.c:498 pop 'beta'
+[2016-05-28 18:29:58.530] nc_util.c:281 free(0x20b9770) @ nc_string.c:54
+[2016-05-28 18:29:58.530] nc_conf.c:641 next event 10 depth 1 seq 0
+[2016-05-28 18:29:58.530] nc_conf.c:605 next end event 4
+[2016-05-28 18:29:58.530] nc_conf.c:605 next end event 2
+[2016-05-28 18:29:58.530] nc_conf.c:335 2 pools in configuration file 'conf/nutcracker.yml'
+[2016-05-28 18:29:58.530] nc_conf.c:340 beta
+[2016-05-28 18:29:58.530] nc_conf.c:342   listen: 0.0.0.0:22122
+[2016-05-28 18:29:58.530] nc_conf.c:343   timeout: 400
+[2016-05-28 18:29:58.530] nc_conf.c:344   backlog: 512
+[2016-05-28 18:29:58.530] nc_conf.c:345   hash: 6
+[2016-05-28 18:29:58.530] nc_conf.c:347   hash_tag: "{}"
+[2016-05-28 18:29:58.530] nc_conf.c:348   distribution: 0
+[2016-05-28 18:29:58.530] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:29:58.530] nc_conf.c:351   redis: 1
+[2016-05-28 18:29:58.530] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:29:58.530] nc_conf.c:353   auto_eject_hosts: 0
+[2016-05-28 18:29:58.530] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:29:58.530] nc_conf.c:357   server_retry_timeout: 30000
+[2016-05-28 18:29:58.530] nc_conf.c:359   server_failure_limit: 2
+[2016-05-28 18:29:58.530] nc_conf.c:362   servers: 3
+[2016-05-28 18:29:58.530] nc_conf.c:366     192.168.1.111:7000:1
+[2016-05-28 18:29:58.530] nc_conf.c:366     192.168.1.111:7001:1
+[2016-05-28 18:29:58.530] nc_conf.c:366     192.168.1.111:7002:1
+[2016-05-28 18:29:58.530] nc_conf.c:340 alpha
+[2016-05-28 18:29:58.531] nc_conf.c:342   listen: 192.168.1.111:22121
+[2016-05-28 18:29:58.531] nc_conf.c:343   timeout: -1
+[2016-05-28 18:29:58.531] nc_conf.c:344   backlog: 512
+[2016-05-28 18:29:58.531] nc_conf.c:345   hash: 6
+[2016-05-28 18:29:58.531] nc_conf.c:347   hash_tag: ""
+[2016-05-28 18:29:58.531] nc_conf.c:348   distribution: 0
+[2016-05-28 18:29:58.531] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:29:58.531] nc_conf.c:351   redis: 0
+[2016-05-28 18:29:58.531] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:29:58.531] nc_conf.c:353   auto_eject_hosts: 1
+[2016-05-28 18:29:58.531] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:29:58.531] nc_conf.c:357   server_retry_timeout: 2000
+[2016-05-28 18:29:58.531] nc_conf.c:359   server_failure_limit: 1
+[2016-05-28 18:29:58.531] nc_conf.c:362   servers: 4
+[2016-05-28 18:29:58.531] nc_conf.c:366     127.0.0.1:11211:1
+[2016-05-28 18:29:58.531] nc_conf.c:366     127.0.0.1:11210:1
+[2016-05-28 18:29:58.531] nc_conf.c:366     127.0.0.1:11212:1
+[2016-05-28 18:29:58.531] nc_conf.c:366     127.0.0.1:11213:1
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20b95f0) @ nc_array.c:77
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20b96d0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb490) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb4b0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb6e0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb6c0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb6a0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_conf.c:143 deinit conf server 0x20cb0e8
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb680) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb660) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb640) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_conf.c:143 deinit conf server 0x20cb030
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb5e0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb590) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb520) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_conf.c:143 deinit conf server 0x20caf78
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb620) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb600) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb4d0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_conf.c:143 deinit conf server 0x20caec0
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20caec0) @ nc_array.c:77
+[2016-05-28 18:29:58.531] nc_conf.c:252 deinit conf pool 0x20b9bc8
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb700) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbcf0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20b9790) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbea0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbe80) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbe60) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_conf.c:143 deinit conf server 0x20cb890
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbe40) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbe20) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbe00) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_conf.c:143 deinit conf server 0x20cb7d8
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbd10) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cbdc0) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb540) @ nc_string.c:54
+[2016-05-28 18:29:58.531] nc_conf.c:143 deinit conf server 0x20cb720
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20cb720) @ nc_array.c:77
+[2016-05-28 18:29:58.531] nc_conf.c:252 deinit conf pool 0x20b9a90
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20b9a90) @ nc_array.c:77
+[2016-05-28 18:29:58.531] nc_util.c:281 free(0x20b9250) @ nc_conf.c:1426
+[2016-05-28 18:30:20.731] nc_util.c:235 malloc(760) at 0x175f250 @ nc_conf.c:773
+[2016-05-28 18:30:20.731] nc_util.c:235 malloc(48) at 0x175f5f0 @ nc_array.c:59
+[2016-05-28 18:30:20.731] nc_util.c:235 malloc(2496) at 0x175fa90 @ nc_array.c:59
+[2016-05-28 18:30:20.731] nc_conf.c:806 opened conf 'conf/nutcracker.yml'
+[2016-05-28 18:30:20.731] nc_conf.c:962 conf 'conf/nutcracker.yml' has valid tokens
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 1 depth 0 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 3 depth 0 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 9 depth 0 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.731] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 10 depth 1 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 4 depth 0 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:1030 next event 2 depth 0 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:565 next begin event 1
+[2016-05-28 18:30:20.732] nc_conf.c:565 next begin event 3
+[2016-05-28 18:30:20.732] nc_conf.c:565 next begin event 9
+[2016-05-28 18:30:20.732] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:475 push 'alpha'
+[2016-05-28 18:30:20.732] nc_conf.c:512 conf handler on 'alpha'
+[2016-05-28 18:30:20.732] nc_util.c:235 malloc(1472) at 0x1770ec0 @ nc_array.c:59
+[2016-05-28 18:30:20.732] nc_conf.c:230 init conf pool 0x175fa90, 'alpha'
+[2016-05-28 18:30:20.732] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:475 push 'listen'
+[2016-05-28 18:30:20.732] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.732] nc_conf.c:475 push '192.168.1.111:22121'
+[2016-05-28 18:30:20.732] nc_conf.c:521 conf handler on listen: 192.168.1.111:22121
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '192.168.1.111:22121'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714f0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714d0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'hash'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17715b0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771590) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x175f790) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714f0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'true'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on auto_eject_hosts: true
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'true'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17715b0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771590) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'redis'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'false'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on redis: false
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'false'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x175f790) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771520) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'server_retry_timeout'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '2000'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on server_retry_timeout: 2000
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '2000'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714d0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'server_retry_timeout'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17715b0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'server_failure_limit'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '1'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on server_failure_limit: 1
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '1'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17715e0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'server_failure_limit'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771520) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'servers'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '127.0.0.1:11210:1'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on servers: 127.0.0.1:11210:1
+[2016-05-28 18:30:20.733] nc_conf.c:133 init conf server 0x1770ec0
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '127.0.0.1:11210:1'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714d0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '127.0.0.1:11211:1'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on servers: 127.0.0.1:11211:1
+[2016-05-28 18:30:20.733] nc_conf.c:133 init conf server 0x1770f78
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '127.0.0.1:11211:1'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771640) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '127.0.0.1:11212:1'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on servers: 127.0.0.1:11212:1
+[2016-05-28 18:30:20.733] nc_conf.c:133 init conf server 0x1771030
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '127.0.0.1:11212:1'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17716a0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '127.0.0.1:11213:1'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on servers: 127.0.0.1:11213:1
+[2016-05-28 18:30:20.733] nc_conf.c:133 init conf server 0x17710e8
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '127.0.0.1:11213:1'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771700) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x175f790) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'alpha'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x175f770) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'beta'
+[2016-05-28 18:30:20.733] nc_conf.c:512 conf handler on 'beta'
+[2016-05-28 18:30:20.733] nc_util.c:235 malloc(1472) at 0x1771720 @ nc_array.c:59
+[2016-05-28 18:30:20.733] nc_conf.c:230 init conf pool 0x175fbc8, 'beta'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'listen'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '0.0.0.0:22122'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on listen: 0.0.0.0:22122
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '0.0.0.0:22122'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771d10) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771540) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'hash'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771dc0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771da0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'hash_tag'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '{}'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on hash_tag: {}
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '{}'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771d80) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'hash_tag'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771d10) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771de0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771540) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'false'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on auto_eject_hosts: false
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'false'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771d80) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771d10) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'timeout'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '400'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on timeout: 400
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '400'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771de0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'timeout'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771540) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'redis'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'true'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on redis: true
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'true'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771dc0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771d80) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:475 push 'servers'
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '192.168.1.111:7000:1 server1'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on servers: 192.168.1.111:7000:1 server1
+[2016-05-28 18:30:20.733] nc_conf.c:133 init conf server 0x1771720
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '192.168.1.111:7000:1 server1'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714f0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '192.168.1.111:7001:1 server2'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on servers: 192.168.1.111:7001:1 server2
+[2016-05-28 18:30:20.733] nc_conf.c:133 init conf server 0x17717d8
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '192.168.1.111:7001:1 server2'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714f0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:475 push '192.168.1.111:7002:1 server3'
+[2016-05-28 18:30:20.733] nc_conf.c:521 conf handler on servers: 192.168.1.111:7002:1 server3
+[2016-05-28 18:30:20.733] nc_conf.c:133 init conf server 0x1771890
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop '192.168.1.111:7002:1 server3'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x17714f0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x1771de0) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:498 pop 'beta'
+[2016-05-28 18:30:20.733] nc_util.c:281 free(0x175f770) @ nc_string.c:54
+[2016-05-28 18:30:20.733] nc_conf.c:641 next event 10 depth 1 seq 0
+[2016-05-28 18:30:20.733] nc_conf.c:605 next end event 4
+[2016-05-28 18:30:20.733] nc_conf.c:605 next end event 2
+[2016-05-28 18:30:20.733] nc_conf.c:335 2 pools in configuration file 'conf/nutcracker.yml'
+[2016-05-28 18:30:20.733] nc_conf.c:340 beta
+[2016-05-28 18:30:20.733] nc_conf.c:342   listen: 0.0.0.0:22122
+[2016-05-28 18:30:20.734] nc_conf.c:343   timeout: 400
+[2016-05-28 18:30:20.734] nc_conf.c:344   backlog: 512
+[2016-05-28 18:30:20.734] nc_conf.c:345   hash: 6
+[2016-05-28 18:30:20.734] nc_conf.c:347   hash_tag: "{}"
+[2016-05-28 18:30:20.734] nc_conf.c:348   distribution: 0
+[2016-05-28 18:30:20.734] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:30:20.734] nc_conf.c:351   redis: 1
+[2016-05-28 18:30:20.734] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:30:20.734] nc_conf.c:353   auto_eject_hosts: 0
+[2016-05-28 18:30:20.734] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:30:20.734] nc_conf.c:357   server_retry_timeout: 30000
+[2016-05-28 18:30:20.734] nc_conf.c:359   server_failure_limit: 2
+[2016-05-28 18:30:20.734] nc_conf.c:362   servers: 3
+[2016-05-28 18:30:20.734] nc_conf.c:366     192.168.1.111:7000:1
+[2016-05-28 18:30:20.734] nc_conf.c:366     192.168.1.111:7001:1
+[2016-05-28 18:30:20.734] nc_conf.c:366     192.168.1.111:7002:1
+[2016-05-28 18:30:20.734] nc_conf.c:340 alpha
+[2016-05-28 18:30:20.734] nc_conf.c:342   listen: 192.168.1.111:22121
+[2016-05-28 18:30:20.734] nc_conf.c:343   timeout: -1
+[2016-05-28 18:30:20.734] nc_conf.c:344   backlog: 512
+[2016-05-28 18:30:20.734] nc_conf.c:345   hash: 6
+[2016-05-28 18:30:20.734] nc_conf.c:347   hash_tag: ""
+[2016-05-28 18:30:20.734] nc_conf.c:348   distribution: 0
+[2016-05-28 18:30:20.734] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:30:20.734] nc_conf.c:351   redis: 0
+[2016-05-28 18:30:20.734] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:30:20.734] nc_conf.c:353   auto_eject_hosts: 1
+[2016-05-28 18:30:20.734] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:30:20.734] nc_conf.c:357   server_retry_timeout: 2000
+[2016-05-28 18:30:20.734] nc_conf.c:359   server_failure_limit: 1
+[2016-05-28 18:30:20.734] nc_conf.c:362   servers: 4
+[2016-05-28 18:30:20.734] nc_conf.c:366     127.0.0.1:11211:1
+[2016-05-28 18:30:20.734] nc_conf.c:366     127.0.0.1:11210:1
+[2016-05-28 18:30:20.734] nc_conf.c:366     127.0.0.1:11212:1
+[2016-05-28 18:30:20.734] nc_conf.c:366     127.0.0.1:11213:1
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x175f5f0) @ nc_array.c:77
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x175f6d0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771490) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x17714b0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x17716e0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x17716c0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x17716a0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_conf.c:143 deinit conf server 0x17710e8
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771680) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771660) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771640) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_conf.c:143 deinit conf server 0x1771030
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x17715e0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771590) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771520) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_conf.c:143 deinit conf server 0x1770f78
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771620) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771600) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x17714d0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_conf.c:143 deinit conf server 0x1770ec0
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1770ec0) @ nc_array.c:77
+[2016-05-28 18:30:20.734] nc_conf.c:252 deinit conf pool 0x175fbc8
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771700) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771cf0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x175f790) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771ea0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771e80) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771e60) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_conf.c:143 deinit conf server 0x1771890
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771e40) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771e20) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771e00) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_conf.c:143 deinit conf server 0x17717d8
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771d10) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771dc0) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771540) @ nc_string.c:54
+[2016-05-28 18:30:20.734] nc_conf.c:143 deinit conf server 0x1771720
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x1771720) @ nc_array.c:77
+[2016-05-28 18:30:20.734] nc_conf.c:252 deinit conf pool 0x175fa90
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x175fa90) @ nc_array.c:77
+[2016-05-28 18:30:20.734] nc_util.c:281 free(0x175f250) @ nc_conf.c:1426
+[2016-05-28 18:30:59.007] nc_util.c:235 malloc(760) at 0x235c250 @ nc_conf.c:773
+[2016-05-28 18:30:59.008] nc_util.c:235 malloc(48) at 0x235c5f0 @ nc_array.c:59
+[2016-05-28 18:30:59.008] nc_util.c:235 malloc(2496) at 0x235ca90 @ nc_array.c:59
+[2016-05-28 18:30:59.008] nc_conf.c:806 opened conf 'conf/nutcracker.yml'
+[2016-05-28 18:30:59.009] nc_conf.c:962 conf 'conf/nutcracker.yml' has valid tokens
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 1 depth 0 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 3 depth 0 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 9 depth 0 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 10 depth 1 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 4 depth 0 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:1030 next event 2 depth 0 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:565 next begin event 1
+[2016-05-28 18:30:59.009] nc_conf.c:565 next begin event 3
+[2016-05-28 18:30:59.009] nc_conf.c:565 next begin event 9
+[2016-05-28 18:30:59.009] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:475 push 'alpha'
+[2016-05-28 18:30:59.009] nc_conf.c:512 conf handler on 'alpha'
+[2016-05-28 18:30:59.009] nc_util.c:235 malloc(1472) at 0x236dec0 @ nc_array.c:59
+[2016-05-28 18:30:59.009] nc_conf.c:230 init conf pool 0x235ca90, 'alpha'
+[2016-05-28 18:30:59.009] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:475 push 'listen'
+[2016-05-28 18:30:59.009] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.009] nc_conf.c:475 push '192.168.1.111:22121'
+[2016-05-28 18:30:59.009] nc_conf.c:521 conf handler on listen: 192.168.1.111:22121
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop '192.168.1.111:22121'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e4f0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e4d0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'hash'
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e5b0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e590) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x235c790) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e4f0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'true'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on auto_eject_hosts: true
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'true'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e5b0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e590) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'redis'
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'false'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on redis: false
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'false'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x235c790) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e520) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'server_retry_timeout'
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push '2000'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on server_retry_timeout: 2000
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop '2000'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e4d0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'server_retry_timeout'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e5b0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'server_failure_limit'
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push '1'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on server_failure_limit: 1
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop '1'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e5e0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop 'server_failure_limit'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e520) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:475 push 'servers'
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.010] nc_conf.c:475 push '127.0.0.1:11210:1'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on servers: 127.0.0.1:11210:1
+[2016-05-28 18:30:59.010] nc_conf.c:133 init conf server 0x236dec0
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop '127.0.0.1:11210:1'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e4d0) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.010] nc_conf.c:475 push '127.0.0.1:11211:1'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on servers: 127.0.0.1:11211:1
+[2016-05-28 18:30:59.010] nc_conf.c:133 init conf server 0x236df78
+[2016-05-28 18:30:59.010] nc_conf.c:498 pop '127.0.0.1:11211:1'
+[2016-05-28 18:30:59.010] nc_util.c:281 free(0x236e640) @ nc_string.c:54
+[2016-05-28 18:30:59.010] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.010] nc_conf.c:475 push '127.0.0.1:11212:1'
+[2016-05-28 18:30:59.010] nc_conf.c:521 conf handler on servers: 127.0.0.1:11212:1
+[2016-05-28 18:30:59.010] nc_conf.c:133 init conf server 0x236e030
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop '127.0.0.1:11212:1'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236e6a0) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.011] nc_conf.c:475 push '127.0.0.1:11213:1'
+[2016-05-28 18:30:59.011] nc_conf.c:521 conf handler on servers: 127.0.0.1:11213:1
+[2016-05-28 18:30:59.011] nc_conf.c:133 init conf server 0x236e0e8
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop '127.0.0.1:11213:1'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236e700) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x235c790) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop 'alpha'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x235c770) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push 'beta'
+[2016-05-28 18:30:59.011] nc_conf.c:512 conf handler on 'beta'
+[2016-05-28 18:30:59.011] nc_util.c:235 malloc(1472) at 0x236e720 @ nc_array.c:59
+[2016-05-28 18:30:59.011] nc_conf.c:230 init conf pool 0x235cbc8, 'beta'
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push 'listen'
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push '0.0.0.0:22122'
+[2016-05-28 18:30:59.011] nc_conf.c:521 conf handler on listen: 0.0.0.0:22122
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop '0.0.0.0:22122'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236ed10) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236e540) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push 'hash'
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:30:59.011] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236edc0) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236eda0) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push 'hash_tag'
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push '{}'
+[2016-05-28 18:30:59.011] nc_conf.c:521 conf handler on hash_tag: {}
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop '{}'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236ed80) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:498 pop 'hash_tag'
+[2016-05-28 18:30:59.011] nc_util.c:281 free(0x236ed10) @ nc_string.c:54
+[2016-05-28 18:30:59.011] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.011] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:30:59.012] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236ede0) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236e540) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push 'false'
+[2016-05-28 18:30:59.012] nc_conf.c:521 conf handler on auto_eject_hosts: false
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop 'false'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236ed80) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236ed10) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push 'timeout'
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push '400'
+[2016-05-28 18:30:59.012] nc_conf.c:521 conf handler on timeout: 400
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop '400'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236ede0) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop 'timeout'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236e540) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push 'redis'
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push 'true'
+[2016-05-28 18:30:59.012] nc_conf.c:521 conf handler on redis: true
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop 'true'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236edc0) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236ed80) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:475 push 'servers'
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.012] nc_conf.c:475 push '192.168.1.111:7000:1 server1'
+[2016-05-28 18:30:59.012] nc_conf.c:521 conf handler on servers: 192.168.1.111:7000:1 server1
+[2016-05-28 18:30:59.012] nc_conf.c:133 init conf server 0x236e720
+[2016-05-28 18:30:59.012] nc_conf.c:498 pop '192.168.1.111:7000:1 server1'
+[2016-05-28 18:30:59.012] nc_util.c:281 free(0x236e4f0) @ nc_string.c:54
+[2016-05-28 18:30:59.012] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.013] nc_conf.c:475 push '192.168.1.111:7001:1 server2'
+[2016-05-28 18:30:59.013] nc_conf.c:521 conf handler on servers: 192.168.1.111:7001:1 server2
+[2016-05-28 18:30:59.013] nc_conf.c:133 init conf server 0x236e7d8
+[2016-05-28 18:30:59.013] nc_conf.c:498 pop '192.168.1.111:7001:1 server2'
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e4f0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:30:59.013] nc_conf.c:475 push '192.168.1.111:7002:1 server3'
+[2016-05-28 18:30:59.013] nc_conf.c:521 conf handler on servers: 192.168.1.111:7002:1 server3
+[2016-05-28 18:30:59.013] nc_conf.c:133 init conf server 0x236e890
+[2016-05-28 18:30:59.013] nc_conf.c:498 pop '192.168.1.111:7002:1 server3'
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e4f0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:30:59.013] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ede0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:30:59.013] nc_conf.c:498 pop 'beta'
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x235c770) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:641 next event 10 depth 1 seq 0
+[2016-05-28 18:30:59.013] nc_conf.c:605 next end event 4
+[2016-05-28 18:30:59.013] nc_conf.c:605 next end event 2
+[2016-05-28 18:30:59.013] nc_conf.c:335 2 pools in configuration file 'conf/nutcracker.yml'
+[2016-05-28 18:30:59.013] nc_conf.c:340 beta
+[2016-05-28 18:30:59.013] nc_conf.c:342   listen: 0.0.0.0:22122
+[2016-05-28 18:30:59.013] nc_conf.c:343   timeout: 400
+[2016-05-28 18:30:59.013] nc_conf.c:344   backlog: 512
+[2016-05-28 18:30:59.013] nc_conf.c:345   hash: 6
+[2016-05-28 18:30:59.013] nc_conf.c:347   hash_tag: "{}"
+[2016-05-28 18:30:59.013] nc_conf.c:348   distribution: 0
+[2016-05-28 18:30:59.013] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:30:59.013] nc_conf.c:351   redis: 1
+[2016-05-28 18:30:59.013] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:30:59.013] nc_conf.c:353   auto_eject_hosts: 0
+[2016-05-28 18:30:59.013] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:30:59.013] nc_conf.c:357   server_retry_timeout: 30000
+[2016-05-28 18:30:59.013] nc_conf.c:359   server_failure_limit: 2
+[2016-05-28 18:30:59.013] nc_conf.c:362   servers: 3
+[2016-05-28 18:30:59.013] nc_conf.c:366     192.168.1.111:7000:1
+[2016-05-28 18:30:59.013] nc_conf.c:366     192.168.1.111:7001:1
+[2016-05-28 18:30:59.013] nc_conf.c:366     192.168.1.111:7002:1
+[2016-05-28 18:30:59.013] nc_conf.c:340 alpha
+[2016-05-28 18:30:59.013] nc_conf.c:342   listen: 192.168.1.111:22121
+[2016-05-28 18:30:59.013] nc_conf.c:343   timeout: -1
+[2016-05-28 18:30:59.013] nc_conf.c:344   backlog: 512
+[2016-05-28 18:30:59.013] nc_conf.c:345   hash: 6
+[2016-05-28 18:30:59.013] nc_conf.c:347   hash_tag: ""
+[2016-05-28 18:30:59.013] nc_conf.c:348   distribution: 0
+[2016-05-28 18:30:59.013] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:30:59.013] nc_conf.c:351   redis: 0
+[2016-05-28 18:30:59.013] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:30:59.013] nc_conf.c:353   auto_eject_hosts: 1
+[2016-05-28 18:30:59.013] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:30:59.013] nc_conf.c:357   server_retry_timeout: 2000
+[2016-05-28 18:30:59.013] nc_conf.c:359   server_failure_limit: 1
+[2016-05-28 18:30:59.013] nc_conf.c:362   servers: 4
+[2016-05-28 18:30:59.013] nc_conf.c:366     127.0.0.1:11211:1
+[2016-05-28 18:30:59.013] nc_conf.c:366     127.0.0.1:11210:1
+[2016-05-28 18:30:59.013] nc_conf.c:366     127.0.0.1:11212:1
+[2016-05-28 18:30:59.013] nc_conf.c:366     127.0.0.1:11213:1
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x235c5f0) @ nc_array.c:77
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x235c6d0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e490) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e4b0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e6e0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e6c0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e6a0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:143 deinit conf server 0x236e0e8
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e680) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e660) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e640) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:143 deinit conf server 0x236e030
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e5e0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e590) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e520) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:143 deinit conf server 0x236df78
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e620) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e600) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e4d0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:143 deinit conf server 0x236dec0
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236dec0) @ nc_array.c:77
+[2016-05-28 18:30:59.013] nc_conf.c:252 deinit conf pool 0x235cbc8
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e700) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ecf0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x235c790) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236eea0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ee80) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ee60) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:143 deinit conf server 0x236e890
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ee40) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ee20) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ee00) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:143 deinit conf server 0x236e7d8
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236ed10) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236edc0) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e540) @ nc_string.c:54
+[2016-05-28 18:30:59.013] nc_conf.c:143 deinit conf server 0x236e720
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x236e720) @ nc_array.c:77
+[2016-05-28 18:30:59.013] nc_conf.c:252 deinit conf pool 0x235ca90
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x235ca90) @ nc_array.c:77
+[2016-05-28 18:30:59.013] nc_util.c:281 free(0x235c250) @ nc_conf.c:1426
+[2016-05-28 18:32:22.842] nc_util.c:235 malloc(760) at 0x206c250 @ nc_conf.c:773
+[2016-05-28 18:32:22.842] nc_util.c:235 malloc(48) at 0x206c5f0 @ nc_array.c:59
+[2016-05-28 18:32:22.843] nc_util.c:235 malloc(2496) at 0x206ca90 @ nc_array.c:59
+[2016-05-28 18:32:22.843] nc_conf.c:806 opened conf 'conf/nutcracker.yml'
+[2016-05-28 18:32:22.843] nc_conf.c:962 conf 'conf/nutcracker.yml' has valid tokens
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 1 depth 0 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 3 depth 0 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 9 depth 0 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 1 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 9 depth 1 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.843] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 7 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 8 depth 2 seq 1
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 10 depth 2 seq 1
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 10 depth 1 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 4 depth 0 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:1030 next event 2 depth 0 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:565 next begin event 1
+[2016-05-28 18:32:22.844] nc_conf.c:565 next begin event 3
+[2016-05-28 18:32:22.844] nc_conf.c:565 next begin event 9
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'alpha'
+[2016-05-28 18:32:22.844] nc_conf.c:512 conf handler on 'alpha'
+[2016-05-28 18:32:22.844] nc_util.c:235 malloc(1472) at 0x207dec0 @ nc_array.c:59
+[2016-05-28 18:32:22.844] nc_conf.c:230 init conf pool 0x206ca90, 'alpha'
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'listen'
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push '192.168.1.111:22121'
+[2016-05-28 18:32:22.844] nc_conf.c:521 conf handler on listen: 192.168.1.111:22121
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop '192.168.1.111:22121'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e4f0) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e4d0) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'hash'
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:32:22.844] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e5b0) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e590) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:32:22.844] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x206c790) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e4f0) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'true'
+[2016-05-28 18:32:22.844] nc_conf.c:521 conf handler on auto_eject_hosts: true
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'true'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e5b0) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e590) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'redis'
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'false'
+[2016-05-28 18:32:22.844] nc_conf.c:521 conf handler on redis: false
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'false'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x206c790) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e520) @ nc_string.c:54
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push 'server_retry_timeout'
+[2016-05-28 18:32:22.844] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.844] nc_conf.c:475 push '2000'
+[2016-05-28 18:32:22.844] nc_conf.c:521 conf handler on server_retry_timeout: 2000
+[2016-05-28 18:32:22.844] nc_conf.c:498 pop '2000'
+[2016-05-28 18:32:22.844] nc_util.c:281 free(0x207e4d0) @ nc_string.c:54
+[2016-05-28 18:32:22.845] nc_conf.c:498 pop 'server_retry_timeout'
+[2016-05-28 18:32:22.845] nc_util.c:281 free(0x207e5b0) @ nc_string.c:54
+[2016-05-28 18:32:22.845] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.845] nc_conf.c:475 push 'server_failure_limit'
+[2016-05-28 18:32:22.845] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.845] nc_conf.c:475 push '1'
+[2016-05-28 18:32:22.845] nc_conf.c:521 conf handler on server_failure_limit: 1
+[2016-05-28 18:32:22.845] nc_conf.c:498 pop '1'
+[2016-05-28 18:32:22.845] nc_util.c:281 free(0x207e5e0) @ nc_string.c:54
+[2016-05-28 18:32:22.845] nc_conf.c:498 pop 'server_failure_limit'
+[2016-05-28 18:32:22.845] nc_util.c:281 free(0x207e520) @ nc_string.c:54
+[2016-05-28 18:32:22.845] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.845] nc_conf.c:475 push 'servers'
+[2016-05-28 18:32:22.845] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:32:22.845] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.845] nc_conf.c:475 push '127.0.0.1:11210:1'
+[2016-05-28 18:32:22.845] nc_conf.c:521 conf handler on servers: 127.0.0.1:11210:1
+[2016-05-28 18:32:22.845] nc_conf.c:133 init conf server 0x207dec0
+[2016-05-28 18:32:22.845] nc_conf.c:498 pop '127.0.0.1:11210:1'
+[2016-05-28 18:32:22.845] nc_util.c:281 free(0x207e4d0) @ nc_string.c:54
+[2016-05-28 18:32:22.845] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.845] nc_conf.c:475 push '127.0.0.1:11211:1'
+[2016-05-28 18:32:22.845] nc_conf.c:521 conf handler on servers: 127.0.0.1:11211:1
+[2016-05-28 18:32:22.845] nc_conf.c:133 init conf server 0x207df78
+[2016-05-28 18:32:22.845] nc_conf.c:498 pop '127.0.0.1:11211:1'
+[2016-05-28 18:32:22.845] nc_util.c:281 free(0x207e640) @ nc_string.c:54
+[2016-05-28 18:32:22.845] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.845] nc_conf.c:475 push '127.0.0.1:11212:1'
+[2016-05-28 18:32:22.845] nc_conf.c:521 conf handler on servers: 127.0.0.1:11212:1
+[2016-05-28 18:32:22.845] nc_conf.c:133 init conf server 0x207e030
+[2016-05-28 18:32:22.845] nc_conf.c:498 pop '127.0.0.1:11212:1'
+[2016-05-28 18:32:22.845] nc_util.c:281 free(0x207e6a0) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.846] nc_conf.c:475 push '127.0.0.1:11213:1'
+[2016-05-28 18:32:22.846] nc_conf.c:521 conf handler on servers: 127.0.0.1:11213:1
+[2016-05-28 18:32:22.846] nc_conf.c:133 init conf server 0x207e0e8
+[2016-05-28 18:32:22.846] nc_conf.c:498 pop '127.0.0.1:11213:1'
+[2016-05-28 18:32:22.846] nc_util.c:281 free(0x207e700) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:32:22.846] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:32:22.846] nc_util.c:281 free(0x206c790) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:498 pop 'alpha'
+[2016-05-28 18:32:22.846] nc_util.c:281 free(0x206c770) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 6 depth 1 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:475 push 'beta'
+[2016-05-28 18:32:22.846] nc_conf.c:512 conf handler on 'beta'
+[2016-05-28 18:32:22.846] nc_util.c:235 malloc(1472) at 0x207e720 @ nc_array.c:59
+[2016-05-28 18:32:22.846] nc_conf.c:230 init conf pool 0x206cbc8, 'beta'
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 9 depth 1 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:475 push 'listen'
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:475 push '0.0.0.0:22122'
+[2016-05-28 18:32:22.846] nc_conf.c:521 conf handler on listen: 0.0.0.0:22122
+[2016-05-28 18:32:22.846] nc_conf.c:498 pop '0.0.0.0:22122'
+[2016-05-28 18:32:22.846] nc_util.c:281 free(0x207ed10) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:498 pop 'listen'
+[2016-05-28 18:32:22.846] nc_util.c:281 free(0x207e540) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:475 push 'hash'
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:475 push 'fnv1a_64'
+[2016-05-28 18:32:22.846] nc_conf.c:521 conf handler on hash: fnv1a_64
+[2016-05-28 18:32:22.846] nc_conf.c:498 pop 'fnv1a_64'
+[2016-05-28 18:32:22.846] nc_util.c:281 free(0x207edc0) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:498 pop 'hash'
+[2016-05-28 18:32:22.846] nc_util.c:281 free(0x207eda0) @ nc_string.c:54
+[2016-05-28 18:32:22.846] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.846] nc_conf.c:475 push 'hash_tag'
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push '{}'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on hash_tag: {}
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop '{}'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ed80) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'hash_tag'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ed10) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'distribution'
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'ketama'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on distribution: ketama
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'ketama'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ede0) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'distribution'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207e540) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'auto_eject_hosts'
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'false'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on auto_eject_hosts: false
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'false'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ed80) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'auto_eject_hosts'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ed10) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'timeout'
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push '400'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on timeout: 400
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop '400'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ede0) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'timeout'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207e540) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'redis'
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'true'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on redis: true
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'true'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207edc0) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'redis'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ed80) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:475 push 'servers'
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 7 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.847] nc_conf.c:475 push '192.168.1.111:7000:1 server1'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on servers: 192.168.1.111:7000:1 server1
+[2016-05-28 18:32:22.847] nc_conf.c:133 init conf server 0x207e720
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop '192.168.1.111:7000:1 server1'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207e4f0) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.847] nc_conf.c:475 push '192.168.1.111:7001:1 server2'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on servers: 192.168.1.111:7001:1 server2
+[2016-05-28 18:32:22.847] nc_conf.c:133 init conf server 0x207e7d8
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop '192.168.1.111:7001:1 server2'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207e4f0) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 6 depth 2 seq 1
+[2016-05-28 18:32:22.847] nc_conf.c:475 push '192.168.1.111:7002:1 server3'
+[2016-05-28 18:32:22.847] nc_conf.c:521 conf handler on servers: 192.168.1.111:7002:1 server3
+[2016-05-28 18:32:22.847] nc_conf.c:133 init conf server 0x207e890
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop '192.168.1.111:7002:1 server3'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207e4f0) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 8 depth 2 seq 1
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'servers'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x207ede0) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 10 depth 2 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:498 pop 'beta'
+[2016-05-28 18:32:22.847] nc_util.c:281 free(0x206c770) @ nc_string.c:54
+[2016-05-28 18:32:22.847] nc_conf.c:641 next event 10 depth 1 seq 0
+[2016-05-28 18:32:22.847] nc_conf.c:605 next end event 4
+[2016-05-28 18:32:22.847] nc_conf.c:605 next end event 2
+[2016-05-28 18:32:22.847] nc_conf.c:335 2 pools in configuration file 'conf/nutcracker.yml'
+[2016-05-28 18:32:22.847] nc_conf.c:340 beta
+[2016-05-28 18:32:22.847] nc_conf.c:342   listen: 0.0.0.0:22122
+[2016-05-28 18:32:22.847] nc_conf.c:343   timeout: 400
+[2016-05-28 18:32:22.847] nc_conf.c:344   backlog: 512
+[2016-05-28 18:32:22.847] nc_conf.c:345   hash: 6
+[2016-05-28 18:32:22.848] nc_conf.c:347   hash_tag: "{}"
+[2016-05-28 18:32:22.848] nc_conf.c:348   distribution: 0
+[2016-05-28 18:32:22.848] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:32:22.848] nc_conf.c:351   redis: 1
+[2016-05-28 18:32:22.848] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:32:22.848] nc_conf.c:353   auto_eject_hosts: 0
+[2016-05-28 18:32:22.848] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:32:22.848] nc_conf.c:357   server_retry_timeout: 30000
+[2016-05-28 18:32:22.848] nc_conf.c:359   server_failure_limit: 2
+[2016-05-28 18:32:22.848] nc_conf.c:362   servers: 3
+[2016-05-28 18:32:22.848] nc_conf.c:366     192.168.1.111:7000:1
+[2016-05-28 18:32:22.848] nc_conf.c:366     192.168.1.111:7001:1
+[2016-05-28 18:32:22.848] nc_conf.c:366     192.168.1.111:7002:1
+[2016-05-28 18:32:22.848] nc_conf.c:340 alpha
+[2016-05-28 18:32:22.848] nc_conf.c:342   listen: 192.168.1.111:22121
+[2016-05-28 18:32:22.848] nc_conf.c:343   timeout: -1
+[2016-05-28 18:32:22.848] nc_conf.c:344   backlog: 512
+[2016-05-28 18:32:22.848] nc_conf.c:345   hash: 6
+[2016-05-28 18:32:22.848] nc_conf.c:347   hash_tag: ""
+[2016-05-28 18:32:22.848] nc_conf.c:348   distribution: 0
+[2016-05-28 18:32:22.848] nc_conf.c:350   client_connections: 0
+[2016-05-28 18:32:22.848] nc_conf.c:351   redis: 0
+[2016-05-28 18:32:22.848] nc_conf.c:352   preconnect: 0
+[2016-05-28 18:32:22.848] nc_conf.c:353   auto_eject_hosts: 1
+[2016-05-28 18:32:22.848] nc_conf.c:355   server_connections: 1
+[2016-05-28 18:32:22.848] nc_conf.c:357   server_retry_timeout: 2000
+[2016-05-28 18:32:22.848] nc_conf.c:359   server_failure_limit: 1
+[2016-05-28 18:32:22.848] nc_conf.c:362   servers: 4
+[2016-05-28 18:32:22.848] nc_conf.c:366     127.0.0.1:11211:1
+[2016-05-28 18:32:22.848] nc_conf.c:366     127.0.0.1:11210:1
+[2016-05-28 18:32:22.848] nc_conf.c:366     127.0.0.1:11212:1
+[2016-05-28 18:32:22.848] nc_conf.c:366     127.0.0.1:11213:1
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x206c5f0) @ nc_array.c:77
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x206c6d0) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e490) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e4b0) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e6e0) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e6c0) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e6a0) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_conf.c:143 deinit conf server 0x207e0e8
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e680) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e660) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e640) @ nc_string.c:54
+[2016-05-28 18:32:22.848] nc_conf.c:143 deinit conf server 0x207e030
+[2016-05-28 18:32:22.848] nc_util.c:281 free(0x207e5e0) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e590) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e520) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_conf.c:143 deinit conf server 0x207df78
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e620) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e600) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e4d0) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_conf.c:143 deinit conf server 0x207dec0
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207dec0) @ nc_array.c:77
+[2016-05-28 18:32:22.849] nc_conf.c:252 deinit conf pool 0x206cbc8
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e700) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207ecf0) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x206c790) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207eea0) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207ee80) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207ee60) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_conf.c:143 deinit conf server 0x207e890
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207ee40) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207ee20) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207ee00) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_conf.c:143 deinit conf server 0x207e7d8
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207ed10) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207edc0) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e540) @ nc_string.c:54
+[2016-05-28 18:32:22.849] nc_conf.c:143 deinit conf server 0x207e720
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x207e720) @ nc_array.c:77
+[2016-05-28 18:32:22.849] nc_conf.c:252 deinit conf pool 0x206ca90
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x206ca90) @ nc_array.c:77
+[2016-05-28 18:32:22.849] nc_util.c:281 free(0x206c250) @ nc_conf.c:1426
+[2016-05-28 18:35:46.265] nc_util.c:235 malloc(760) at 0xc43250 @ nc_conf.c:773
+[2016-05-28 18:35:46.265] nc_util.c:235 malloc(48) at 0xc435f0 @ nc_array.c:59
+[2016-05-28 18:35:46.265] nc_util.c:235 malloc(2496) at 0xc43a90 @ nc_array.c:59
+[2016-05-28 18:35:46.265] nc_conf.c:806 opened conf 'conf/nutcracker.yml'
+[2016-05-28 18:35:46.265] nc_conf.c:1378 111111111111111111111
+[2016-05-28 18:36:11.343] nc.c:460 111111111111111111111
+[2016-05-28 18:36:31.410] nc.c:460 111111111111111111111
+[2016-05-28 18:37:54.278] nc.c:460 111111111111111111111

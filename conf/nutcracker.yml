@@ -1,0 +1,13 @@
+beta:
+  listen: 0.0.0.0:22121
+  hash: fnv1a_64
+  redis: true
+  #redis:true
+  hash_tag: "{}"
+  distribution: ketama
+  auto_eject_hosts: true
+  timeout: 400
+ # redis: true
+  servers:
+    - 127.0.0.1:11111:1 server1
+

@@ -1,0 +1,8 @@
+/*
+测试环境搭建  http://www.cnblogs.com/haoxinyue/p/redis.html
+内存占用情况，http://blog.chinaunix.net/uid-20492804-id-265809.html
+twemproxy web监控:http://linuxsogood.org/1052.html
+memcache扩展:http://wangbixi.com/x3584/      
+http://blog.csdn.net/yhl27/article/details/42278251  http://blog.163.com/yxba_02/blog/static/1875576201272583532588/
+http://bbs.csdn.net/topics/370007958
+*/

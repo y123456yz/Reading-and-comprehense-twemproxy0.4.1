@@ -1,0 +1,22 @@
+[2016-05-28 18:39:57.711] nc.c:187 nutcracker-0.4.1 built for Linux 2.6.32-431.el6.x86_64 x86_64 started on pid 6868
+[2016-05-28 18:39:57.713] nc.c:192 run, rabbit run / dig that hole, forget the sun / and when at last the work is done / don't sit down / it's time to dig another one
+[2016-05-28 18:39:57.713] nc_mbuf.c:294 mbuf hsize 48 chunk size 16384 offset 16336 length 16336
+[2016-05-28 18:39:57.713] nc_message.c:430 msg size 440
+[2016-05-28 18:39:57.713] nc_connection.c:323 conn size 352
+[2016-05-28 18:39:57.713] nc_util.c:235 malloc(88) at 0x1fe70b0 @ nc_core.c:55
+[2016-05-28 18:39:57.713] nc_util.c:235 malloc(760) at 0x1fe7790 @ nc_conf.c:773
+[2016-05-28 18:39:57.713] nc_util.c:235 malloc(48) at 0x1fe7110 @ nc_array.c:59
+[2016-05-28 18:39:57.713] nc_util.c:235 malloc(2496) at 0x1fe7a90 @ nc_array.c:59
+[2016-05-28 18:39:57.713] nc_conf.c:806 opened conf 'conf/nutcracker.yml'
+[2016-05-28 18:39:57.713] nc_conf.c:1378 111111111111111111111
+[2016-05-28 18:40:04.877] nc.c:187 nutcracker-0.4.1 built for Linux 2.6.32-431.el6.x86_64 x86_64 started on pid 6949
+[2016-05-28 18:40:04.878] nc.c:192 run, rabbit run / dig that hole, forget the sun / and when at last the work is done / don't sit down / it's time to dig another one
+[2016-05-28 18:40:04.878] nc_mbuf.c:294 mbuf hsize 48 chunk size 16384 offset 16336 length 16336
+[2016-05-28 18:40:04.878] nc_message.c:430 msg size 440
+[2016-05-28 18:40:04.878] nc_connection.c:323 conn size 352
+[2016-05-28 18:40:04.878] nc_util.c:235 malloc(88) at 0x9b00b0 @ nc_core.c:55
+[2016-05-28 18:40:04.878] nc_util.c:235 malloc(760) at 0x9b0790 @ nc_conf.c:773
+[2016-05-28 18:40:04.878] nc_util.c:235 malloc(48) at 0x9b0110 @ nc_array.c:59
+[2016-05-28 18:40:04.878] nc_util.c:235 malloc(2496) at 0x9b0a90 @ nc_array.c:59
+[2016-05-28 18:40:04.878] nc_conf.c:806 opened conf 'conf/nutcracker.yml'
+[2016-05-28 18:40:04.878] nc_conf.c:1378 111111111111111111111
