@@ -1,0 +1,10 @@
+*.Groff linguist-language=c
+*.groff linguist-language=c 
+*.sh linguist-language=c 
+*.yul linguist-language=c
+*.ac linguist-language=c
+*.txt linguist-language=c
+*.md linguist-language=c
+*.status linguist-language=c
+*.in linguist-language=c
+
