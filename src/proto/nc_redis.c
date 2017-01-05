@@ -59,7 +59,7 @@ redis_argz(struct msg *r)
  * return false
  */
 static bool
-redis_arg0(struct msg *r)
+redis_arg0(struct msg *r) ////key后面的参数个数为0，例如EXISTS yang,key位yang，key后面的参数没有
 {
     switch (r->type) {
     case MSG_REQ_REDIS_EXISTS:
@@ -104,7 +104,7 @@ redis_arg0(struct msg *r)
  * return false
  */
 static bool
-redis_arg1(struct msg *r)
+redis_arg1(struct msg *r) //key后面的参数个数为1，例如set yang 111,key位yang,value为111，key后面的参数只有一个，及111
 {
     switch (r->type) {
     case MSG_REQ_REDIS_EXPIRE:
@@ -146,7 +146,7 @@ redis_arg1(struct msg *r)
  * Return true, if the redis command accepts exactly 2 arguments, otherwise
  * return false
  */
-static bool
+static bool //HSET key field value   key后面有两个参数
 redis_arg2(struct msg *r)
 {
     switch (r->type) {
@@ -190,7 +190,7 @@ redis_arg2(struct msg *r)
  * return false
  */
 static bool
-redis_arg3(struct msg *r)
+redis_arg3(struct msg *r) //key后面有三个参数
 {
     switch (r->type) {
     case MSG_REQ_REDIS_LINSERT:
@@ -208,7 +208,7 @@ redis_arg3(struct msg *r)
  * return false
  */
 static bool
-redis_argn(struct msg *r)
+redis_argn(struct msg *r) //key后面有n个参数
 {
     switch (r->type) {
     case MSG_REQ_REDIS_SORT:
@@ -370,8 +370,26 @@ redis_error(struct msg *r)
  *     a binary-safe last argument.
  *
  * Nutcracker only supports the Redis unified protocol for requests.
- */ //命令支持https://github.com/twitter/twemproxy/blob/master/notes/redis.md
-void 
+ */ 
+/*
+*3
+$3
+set
+$4
+yang
+$3
+111111111111111111
++OK
+*2
+$3
+get
+$4
+yang
+$3
+111111111111111111
+*/
+//命令支持https://github.com/twitter/twemproxy/blob/master/notes/redis.md
+void  //解析msg->mbuf中的数据，注意mbuf中pos指针是没有变化的，还是指向以前的位置，是通过r->pos来一步步解析的
 redis_parse_req(struct msg *r) //redis命令解析
 {
     struct mbuf *b;
@@ -426,8 +444,8 @@ redis_parse_req(struct msg *r) //redis命令解析
         switch (state) {
 
         case SW_START:
-        case SW_NARG:
-            if (r->token == NULL) {
+        case SW_NARG: //解析命令有几个参数，例如set yang 222,则就是解析*3，表示有三个参数
+            if (r->token == NULL) { //获取参数个数
                 if (ch != '*') {
                     goto error;
                 }
@@ -436,7 +454,7 @@ redis_parse_req(struct msg *r) //redis命令解析
                 r->narg_start = p;
                 r->rnarg = 0;
                 state = SW_NARG;
-            } else if (isdigit(ch)) {
+            } else if (isdigit(ch)) { //参数个数转换为数字
                 r->rnarg = r->rnarg * 10 + (uint32_t)(ch - '0');
             } else if (ch == CR) {
                 if (r->rnarg == 0) {
@@ -464,6 +482,16 @@ redis_parse_req(struct msg *r) //redis命令解析
 
             break;
 
+        /*
+        *3
+        $3
+        set
+        $4
+        yang
+        $3
+        111
+        */ //解析上面的$3  $4  $3字符串
+        //解析每个命令字符串中的arg，例如set yang 111,则这里就是解析set字符串、yang字符串、111字符串的长度$3  $4  $3
         case SW_REQ_TYPE_LEN:
             if (r->token == NULL) {
                 if (ch != '$') {
@@ -498,6 +526,16 @@ redis_parse_req(struct msg *r) //redis命令解析
 
             break;
 
+        /*
+        *3
+        $3
+        set
+        $4
+        yang
+        $3
+        111
+        */ //解析上面的set字符串
+        //解析每个命令字符串中的arg，例如set yang 111,则这里就是解析set字符串
         case SW_REQ_TYPE:
             if (r->token == NULL) {
                 r->token = p;
@@ -1123,7 +1161,15 @@ redis_parse_req(struct msg *r) //redis命令解析
             }
 
             break;
-
+            /*
+           *3
+           $3
+           set
+           $4
+           yang
+           $3
+           111
+           */ //解析上面的set字符串后面的$4，4表示yang的长度
         case SW_KEY_LEN:
             if (r->token == NULL) {
                 if (ch != '$') {
@@ -1164,7 +1210,15 @@ redis_parse_req(struct msg *r) //redis命令解析
             }
 
             break;
-
+         /*
+        *3
+        $3
+        set
+        $4
+        yang
+        $3
+        111
+        */ //解析上面的yang字符串
         case SW_KEY:
             if (r->token == NULL) {
                 r->token = p;
@@ -1187,7 +1241,7 @@ redis_parse_req(struct msg *r) //redis命令解析
                 m = r->token;
                 r->token = NULL;
 
-                kpos = array_push(r->keys);
+                kpos = array_push(r->keys); //key存到keys数组中
                 if (kpos == NULL) {
                     goto enomem;
                 }
@@ -1253,7 +1307,7 @@ redis_parse_req(struct msg *r) //redis命令解析
             }
 
             break;
-
+        //解析key后面的第一个参数的长度
         case SW_ARG1_LEN:
             if (r->token == NULL) {
                 if (ch != '$') {

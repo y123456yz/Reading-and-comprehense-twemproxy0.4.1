@@ -152,8 +152,35 @@ struct conf { //创建空间和初始化见conf_open   配置真正存储在conf->pool中的数组成
     //打开fname文件产生的文件句柄
     FILE          *fh;              /* file handle */ 
     struct array  arg;              /* string[] (parsed {key, value} pairs) */
+
+    /*
+    alpha:
+  listen: 127.0.0.1:22121
+  hash: fnv1a_64
+  distribution: ketama
+  auto_eject_hosts: true
+  redis: true
+  server_retry_timeout: 2000
+  server_failure_limit: 1
+  servers:
+   - 127.0.0.1:6379:1
+
+beta:
+  listen: 127.0.0.1:22122
+  hash: fnv1a_64
+  hash_tag: "{}"
+  distribution: ketama
+  auto_eject_hosts: false
+  timeout: 400
+  redis: true
+  servers:
+   - server1 127.0.0.1:6380:1
+   - server2 127.0.0.1:6381:1
+   - server3 127.0.0.1:6382:1
+   - server4 127.0.0.1:6383:1
+    */ //alpha和beta各自对应一个conf_pool结构
     //成员类型conf_pool  真正的配置存放在数组成员conf_pool中
-    struct array  pool;             /* conf_pool[] (parsed pools) */
+    struct array  pool;             /* conf_pool[] (parsed pools) */  
     uint32_t      depth;            /* parsed tree depth */
     yaml_parser_t parser;           /* yaml parser */
     yaml_event_t  event;            /* yaml event */

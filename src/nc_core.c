@@ -192,7 +192,7 @@ core_stop(struct context *ctx)
 }
 
 static rstatus_t
-core_recv(struct context *ctx, struct conn *conn)
+core_recv(struct context *ctx, struct conn *conn) //epoll有read事件产生
 {
     rstatus_t status;
 

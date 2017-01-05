@@ -70,8 +70,8 @@ struct continuum {
 //配置相关的结构体路径instance->context->conf->conf_pool(conf_server)->server_pool(server)
 //配置文件中每个大的server对应的servers: 配置， servers:列表中的每一个- 192.168.1.111:7000:1对应一个server,起owner为其大server，例如alpha
 //一个后端真实redis服务器对应一个server
-struct server { //server_pool->server数组成员为该类型，创建空间和赋值见stats_pool_init->stats_server_map
-    uint32_t           idx;           /* server index */
+struct server { //server_pool->server数组成员为该类型，创建空间和赋值见stats_pool_init->stats_server_map  或者server_pool_init
+    uint32_t           idx;           /* server index */ //在所属数组中的位置
     //该server由谁管理，赋值见server_each_set_owner，也就是所属的server pool
     struct server_pool *owner;        /* owner pool */ //例如alpha:下面的servers:的
 
@@ -92,6 +92,36 @@ struct server { //server_pool->server数组成员为该类型，创建空间和赋值见stats_poo
     //failure_count和server_failure_limit配合，见server_failure
     uint32_t           failure_count; /* # consecutive failures */ //连续读写失败次数，见server_failure
 };
+
+
+/*
+    alpha:
+  listen: 127.0.0.1:22121
+  hash: fnv1a_64
+  distribution: ketama
+  auto_eject_hosts: true
+  redis: true
+  server_retry_timeout: 2000
+  server_failure_limit: 1
+  servers:
+   - 127.0.0.1:6379:1
+
+beta:
+  listen: 127.0.0.1:22122
+  hash: fnv1a_64
+  hash_tag: "{}"
+  distribution: ketama
+  auto_eject_hosts: false
+  timeout: 400
+  redis: true
+  servers:
+   - server1 127.0.0.1:6380:1
+   - server2 127.0.0.1:6381:1
+   - server3 127.0.0.1:6382:1
+   - server4 127.0.0.1:6383:1
+*/
+//上面配置中alpha和beta分别对应一个server_pool
+
 //配置相关的结构体路径instance->context->conf->conf_pool(conf_server)->server_pool(server)
 
 //存储在context->pool数组中
@@ -103,7 +133,7 @@ struct server { //server_pool->server数组成员为该类型，创建空间和赋值见stats_poo
 
 //server_pool存储在context->pool   conf_pool结构存在conf->pool数组中  参考server_pool_init(&ctx->pool, &ctx->cf->pool, ctx);
 struct server_pool { //里面的相关信息实际是最终来源还是配置文件   一个大server对应一个server_pool结构，例如大server alpha:
-    uint32_t           idx;                  /* pool index */ //idx表示这是第几个pool，例如alpha  beta是第几个
+    uint32_t           idx;                  /* pool index */ //idx表示这是第几个pool，例如alpha  beta是第几个   //在所属数组中的位置
     //赋值见server_pool_each_set_owner
     struct context     *ctx;                 /* owner context */
 

@@ -487,7 +487,7 @@ req_server_dequeue_omsgq(struct context *ctx, struct conn *conn, struct msg *msg
 * server.
 */
 
-//msg_recv中执行，获取一个msg结构
+//msg_recv中执行，获取一个用于接收数据msg结构，如果之前的msg中KV数据没有读取完毕，则直接用上次的msg,否则重新获取一个msg读取数据
 struct msg *
 req_recv_next(struct context *ctx, struct conn *conn, bool alloc)
 {
@@ -526,12 +526,13 @@ req_recv_next(struct context *ctx, struct conn *conn, bool alloc)
     }
 
     msg = conn->rmsg;
-    if (msg != NULL) {
+    if (msg != NULL) { //说明之前某个KV数据没读取完毕，因此就不会忘后端转发，这次还是使用该msg进行读取新来的数据是得KV成为完整的KV
         ASSERT(msg->request);
         return msg;
     }
 
-    if (!alloc) {
+    //说明这是一个全新的KV数据
+    if (!alloc) { //如果为0，则直接返回NULL
         return NULL;
     }
 
@@ -843,6 +844,7 @@ req_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
     ASSERT(conn->rmsg == msg);
     ASSERT(nmsg == NULL || nmsg->request);
 
+    //如果读取出来的KV都是完整的，则conn->rmsg = NULL,如果读取内核协议栈缓冲区的数据最好一个KV没有读取完整，则conn->rmsg = nmsg(也就是新的一个msg)
     /* enqueue next message (request), if any */
     conn->rmsg = nmsg;
 
@@ -952,7 +954,7 @@ req_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
 //从imsg_q队列中取出msg然后发往后端真实服务器
 struct msg *   //发往客户端用rsp_send_next 发往后端服务器用req_send_next    msg_send或者msg_send_chain中执行
 req_send_next(struct context *ctx, struct conn *conn) //从imsg_q队列中取出需要发往后端的msg
-{//从队列imsg_q中取出msg发送  //msg_send中执行
+{//从队列imsg_q中取出msg发送  //msg_send中执行        msg_send或者msg_send_chain中执行
     rstatus_t status;
     struct msg *msg, *nmsg; /* current and next message */
 
@@ -963,7 +965,7 @@ req_send_next(struct context *ctx, struct conn *conn) //从imsg_q队列中取出需要发
     }
 
     nmsg = TAILQ_FIRST(&conn->imsg_q);
-    if (nmsg == NULL) {
+    if (nmsg == NULL) { //说明已经写数据完成，把imsg_q队列上的所有msg信息已经发送完毕
         /* nothing to send as the server inq is empty */
         status = event_del_out(ctx->evb, conn); //没有数据需要发往后端了，去除写事件
         if (status != NC_OK) {

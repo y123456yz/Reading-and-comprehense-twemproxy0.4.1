@@ -543,6 +543,25 @@ nc_run(struct instance *nci)
     core_stop(ctx);
 }
 
+/*
+nc 127.0.0.1 33222  |  python -mjson.tool 
+
+多进程调试:
+[root@centlhw1 twemproxy]# gdb ./src/nutcracker
+GNU gdb (GDB) Red Hat Enterprise Linux (7.2-60.el6_4.1)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /root/yangyazhou/twemproxy_beibei/twemproxy/src/nutcracker...done.
+(gdb) set args -w 1 -v 4 -c nutcracker.yml2
+(gdb) set follow-fork-mode child
+(gdb) r
+*/
 int
 main(int argc, char **argv)
 {

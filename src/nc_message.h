@@ -194,13 +194,13 @@ typedef enum msg_type {
 } msg_type_t;
 #undef DEFINE_ACTION
 
-struct keypos {
+struct keypos {//数组msg->keypos中的成员
     uint8_t             *start;           /* key start pos */
     uint8_t             *end;             /* key end pos */
 };
 
 //msg创建空间和赋值见msg_get
-struct msg {
+struct msg { //真正存储数据的是mbuf，由msg->pos指向mbuf空间空闲位置，该msg挂到msg->mhdr上面，因为有的数据很大，一个mbuf可能不够用，则需要多个mbuf
     TAILQ_ENTRY(msg)     c_tqe;           /* link in client q */
     TAILQ_ENTRY(msg)     s_tqe;           /* link in server q */
     TAILQ_ENTRY(msg)     m_tqe;           /* link in send q / free q */
@@ -214,14 +214,20 @@ struct msg {
     struct rbnode        tmo_rbe;         /* entry in rbtree */
 
     //mhdr和mbuf的关系参考mbuf_insert  mlen为mbuf的数据长度
-    //该链中存储的是接收数据用的mbuf，有可能数据很大，一个mbuf不够用，所以会有多个mbuf添加到该mhdr链中
+    //该链中存储的是接收数据用的mbuf，有可能数据很大，一个mbuf不够用，所以会有多个mbuf添加到该mhdr链中，通过mbuf_insert把mbuf插入
+    //如果一个mbuf不够存储读取到的KV，例如KV长度1M，但是mbuf默认大小为16K，则需要重新分配，则在msg_recv_chain中会继续分配一个新的mbuf通过mbuf_insert加入msg来读取数据
     struct mhdr          mhdr;            /* message mbuf header */
+    //该msg中所有的mbuf中存储的实际数据长度
     uint32_t             mlen;            /* message length */
     int64_t              start_ts;        /* request start timestamp in usec */
 
     int                  state;           /* current parser state */
-    //执行mbuf->pos，见msg_parsed
-    uint8_t              *pos;            /* parser position marker */
+    //执行mbuf->pos，见msg_parsed   
+    //赋值见msg_recv_chain，解析msg中mbuf的位置，记录解析到mbuf数据中的那个位置，目的是看mbuf中的KV数据协议格式是否正确，不会移动mbuf->pos指针位置
+    //参考msg_parsed，当msg->pos == mbuf->last则说明msg中的数据协议格式是否正确解析完毕
+    uint8_t              *pos;            /* parser position marker */ 
+    
+    //指向读取到的redis协议中的每一行字符串开头
     uint8_t              *token;          /* token marker */
 
 
@@ -256,19 +262,23 @@ struct msg {
     //memcache_post_coalesce  redis_post_coalesce
     msg_coalesce_t       post_coalesce;   /* message post-coalesce */
 
-    //type类型见msg_type_strings
+    //type类型见msg_type_strings  记录命令类型是set 还是get等
     msg_type_t           type;            /* message type */
 
-    //数组成员类型为keypos  memcache_parse_req  redis_parse_req解析的命令行放入该数组中
+    //数组成员类型为keypos  memcache_parse_req  redis_parse_req解析的命令行中的key放入该数组中，例如set yang xxxx，把yang存入该数组
     struct array         *keys;           /* array of keypos, for req */ //set key value中的key放入该数组
 
     uint32_t             vlen;            /* value length (memcache) */
     uint8_t              *end;            /* end marker (memcache) */
-
+    //获取命令行参数的参数个数字符串信息，例如set yang 111,则narg_start指向*3, nargs_end指向*3的末尾
     uint8_t              *narg_start;     /* narg start (redis) */
     uint8_t              *narg_end;       /* narg end (redis) */
+    //参数个数，例如set yang xxx ，则rnarg=3
     uint32_t             narg;            /* # arguments (redis) */
+    //参数个数，例如set yang xxx ，则rnarg=3，每解析一个字符串，例如现在解析到set字符串完毕，则-1，说明还有2个字符串需要解析，最终表示key后面有几个参数
+    //例如set yang 11，key后面有1个参数，exist yang，key后面有0个参数，HSET key field value，key后面有2个参数，以此类推。每解析一个参数，rnargs-1
     uint32_t             rnarg;           /* running # arg used by parsing fsa (redis) */
+    //记录解析set yang xxx中set、yang、xxx字符串的长度分别为3 4 3
     uint32_t             rlen;            /* running length in parsing fsa (redis) */
     uint32_t             integer;         /* integer reply value (redis) */
 
