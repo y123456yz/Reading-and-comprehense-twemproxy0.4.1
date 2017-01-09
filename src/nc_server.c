@@ -54,7 +54,13 @@ server_ref(struct conn *conn, void *owner)
 
     server->ns_conn_q++;
     //把server连接对应的conn添加到s_conn_q队列
+    printf("yang test xxxxxxxxxxxx 11 ccccccccccccccccccccccccccccccccccccccccccccccccc %p %p %p\r\n", 
+        TAILQ_FIRST(&server->s_conn_q), server->s_conn_q.tqh_last, (&server->s_conn_q)->tqh_last);
     TAILQ_INSERT_TAIL(&server->s_conn_q, conn, conn_tqe); //conn_tqe是conn的第一个成员
+    
+    struct conn *conn_t = TAILQ_FIRST(&server->s_conn_q);
+        //if(conn_t == NULL)
+    printf("yang test xxxxxxxxxxxxxxxxxxxxxxxxxxxxx %p %p %p %p\r\n", conn, conn_t, server->s_conn_q.tqh_last, (&server->s_conn_q)->tqh_first);
 
     conn->owner = owner; //该连接对应的后端服务器地址server
 
@@ -664,7 +670,7 @@ server_pool_hash(struct server_pool *pool, uint8_t *key, uint32_t keylen)
     return pool->key_hash((char *)key, keylen); //YANG ADD XXXXXXXXXX TODO，分配这里需要改为何redis一致
 }
 
-//根据key选举后端指定idx的服务器
+//根据key选举后端指定idx的服务器  
 uint32_t
 server_pool_idx(struct server_pool *pool, uint8_t *key, uint32_t keylen)
 {

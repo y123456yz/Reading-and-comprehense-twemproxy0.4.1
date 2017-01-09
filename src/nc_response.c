@@ -431,6 +431,7 @@ rsp_forward(struct context *ctx, struct conn *s_conn, struct msg *msg)
 * server.
 */
 
+//如果读取出来的KV都是完整的，则conn->rmsg = NULL,如果读取内核协议栈缓冲区的数据最好一个KV没有读取完整，则conn->rmsg = nmsg(也就是新的一个msg)
 void
 rsp_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
               struct msg *nmsg)

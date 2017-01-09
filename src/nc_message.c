@@ -586,12 +586,14 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
     struct mbuf *mbuf, *nbuf;
 
     mbuf = STAILQ_LAST(&msg->mhdr, mbuf, next); //获取该msg所对应的mbuf
-    if (msg->pos == mbuf->last) { //一般会满足该条件  表示mbuf中的内容以及解析完毕
+    if (msg->pos == mbuf->last) { //一般会满足该条件  表示mbuf中所有KV对数据格式都正确
         /* no more data to parse */
-        conn->recv_done(ctx, conn, msg, NULL); //req_recv_done  rsp_recv_done 
+        conn->recv_done(ctx, conn, msg, NULL); //req_recv_done  rsp_recv_done    
+        //如果读取出来的KV都是完整的，则conn->rmsg = NULL,如果读取内核协议栈缓冲区的数据最好一个KV没有读取完整，则conn->rmsg = nmsg(也就是新的一个msg)
         return NC_OK;
     }
 
+    //如果有多个KV过来，其中前面的KV全部一次性读取到了，但是最后面的一个KV，value还没有读取完毕，则需要再次读取
     /*
      * Input mbuf has un-parsed data. Split mbuf of the current message msg
      * into (mbuf, nbuf), where mbuf is the portion of the message that has
@@ -599,6 +601,7 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
      * Parse nbuf as a new message nmsg in the next iteration.
      */
     nbuf = mbuf_split(&msg->mhdr, msg->pos, NULL, NULL);
+    //把msg中未解析的数据(例如最后一个KV还未读完，则把这部分数据拷贝到nbuf中)，最终nbuf中是最后一部分未解析完成的数据，mbuf中是已经读取解析成功的KV数据
     if (nbuf == NULL) {
         return NC_ENOMEM;
     }
@@ -615,12 +618,13 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
     nmsg->mlen = mbuf_length(nbuf);
     msg->mlen -= nmsg->mlen; //msg中未解析的数据拷贝到了nbuf，中因此把这部分内容去除
 
+    //如果读取出来的KV都是完整的，则conn->rmsg = NULL,如果读取内核协议栈缓冲区的数据最好一个KV没有读取完整，则conn->rmsg = nmsg(也就是新的一个msg)
     conn->recv_done(ctx, conn, msg, nmsg); //msg为原始接收到客户端数据解析后的内容，nmsg为未解析部分重新保存到nmsg中
 
     return NC_OK;
 }
 
-static rstatus_t
+static rstatus_t //说明mbuf空间已经用完，需要再次分配一个mbuf空间
 msg_repair(struct context *ctx, struct conn *conn, struct msg *msg)
 {
     struct mbuf *nbuf;
@@ -646,6 +650,7 @@ msg_parse(struct context *ctx, struct conn *conn, struct msg *msg)
         return NC_OK;
     }
 
+    //解析msg->mbuf中的数据，注意mbuf中pos指针是没有变化的，还是指向以前的位置，是通过r->pos来一步步解析的
     msg->parser(msg);//redis_parse_req  redis_parse_rsp  memcache_parse_req  memcache_parse_rsp
 
     switch (msg->result) {
@@ -653,7 +658,7 @@ msg_parse(struct context *ctx, struct conn *conn, struct msg *msg)
         status = msg_parsed(ctx, conn, msg);
         break;
 
-    case MSG_PARSE_REPAIR:
+    case MSG_PARSE_REPAIR: //说明mbuf空间已经用完，需要再次分配一个mbuf空间
         status = msg_repair(ctx, conn, msg);
         break;
 
@@ -670,6 +675,44 @@ msg_parse(struct context *ctx, struct conn *conn, struct msg *msg)
     return conn->err != 0 ? NC_ERROR : status;
 }
 
+/*
+*             Client+             Proxy           Server+
+*                              (nutcracker)
+*                                   .
+*       msg_recv {read event}       .       msg_recv {read event}
+*         +                         .                         +
+*         |                         .                         |
+*         \                         .                         /
+*         req_recv_next             .             rsp_recv_next
+*           +                       .                       +
+*           |                       .                       |       Rsp
+*           req_recv_done           .           rsp_recv_done      <===
+*             +                     .                     +
+*             |                     .                     |
+*    Req      \                     .                     /
+*    ===>     req_filter*           .           *rsp_filter
+*               +                   .                   +
+*               |                   .                   |
+*               \                   .                   /
+*               req_forward-//  (a) . (c)  \\-rsp_forward
+*                                   .
+*                                   .
+*       msg_send {write event}      .      msg_send {write event}
+*         +                         .                         +
+*         |                         .                         |
+*    Rsp' \                         .                         /     Req'
+*   <===  rsp_send_next             .             req_send_next     ===>
+*           +                       .                       +
+*           |                       .                       |
+*           \                       .                       /
+*           rsp_send_done-//    (d) . (b)    //-req_send_done
+*
+*
+* (a) -> (b) -> (c) -> (d) is the normal flow of transaction consisting
+* of a single request response, where (a) and (b) handle request from
+* client, while (c) and (d) handle the corresponding response from the
+* server.
+*/
 static rstatus_t
 msg_recv_chain(struct context *ctx, struct conn *conn, struct msg *msg)
 {//接收客户端发送过来的命令报文，或者解析后端发送来的应答
@@ -680,12 +723,13 @@ msg_recv_chain(struct context *ctx, struct conn *conn, struct msg *msg)
     ssize_t n;
 
     mbuf = STAILQ_LAST(&msg->mhdr, mbuf, next); //查找msg所处队列的最后
+    //KV数据过来后发现该msg上面一个mbuf都没有，或者改msg上面的mbuf已经用完了
     if (mbuf == NULL || mbuf_full(mbuf)) {//获取msg对应的mbuf上是否还有空余空间，没有则重新分配一个mbuf，并加入到mhdr链中
         mbuf = mbuf_get(); //从新获取一个mbuf
         if (mbuf == NULL) {
             return NC_ENOMEM;
         }
-        mbuf_insert(&msg->mhdr, mbuf);
+        mbuf_insert(&msg->mhdr, mbuf); //
         msg->pos = mbuf->pos;
     }
     ASSERT(mbuf->end - mbuf->last > 0); 
@@ -705,13 +749,14 @@ msg_recv_chain(struct context *ctx, struct conn *conn, struct msg *msg)
     msg->mlen += (uint32_t)n;
 
     for (;;) {
+        //每次读取完内核协议栈缓冲区的数据后都会调用该函数
         status = msg_parse(ctx, conn, msg);
         if (status != NC_OK) { //客户端发送过来的报文有问题，格式不对   或者后端应答的数据格式不对
-            return status; 
+            return status;  //返回后会关闭连接
         }
 
-        /* get next message to parse */
-        nmsg = conn->recv_next(ctx, conn, false);
+        /* get next message to parse */ /* req_recv_next; rsp_recv_next; */
+        nmsg = conn->recv_next(ctx, conn, false); //注意这里是false
         if (nmsg == NULL || nmsg == msg) {
             /* no more data to parse */
             break;

@@ -78,6 +78,7 @@ array_deinit(struct array *a)
     }
 }
 
+//在所属数组中的位置
 uint32_t
 array_idx(struct array *a, void *elem)
 {

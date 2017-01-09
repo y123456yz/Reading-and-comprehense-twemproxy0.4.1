@@ -125,8 +125,35 @@ struct context { //存放于instance->ctx
     //存放配置文件中的配置信息 ctx->cf = conf_create(nci->conf_filename);  配置信息相关
     struct conf        *cf;         /* configuration */
     struct stats       *stats;      /* stats */
+/*
+    alpha:
+  listen: 127.0.0.1:22121
+  hash: fnv1a_64
+  distribution: ketama
+  auto_eject_hosts: true
+  redis: true
+  server_retry_timeout: 2000
+  server_failure_limit: 1
+  servers:
+   - 127.0.0.1:6379:1
+
+beta:
+  listen: 127.0.0.1:22122
+  hash: fnv1a_64
+  hash_tag: "{}"
+  distribution: ketama
+  auto_eject_hosts: false
+  timeout: 400
+  redis: true
+  servers:
+   - server1 127.0.0.1:6380:1
+   - server2 127.0.0.1:6381:1
+   - server3 127.0.0.1:6382:1
+   - server4 127.0.0.1:6383:1
+*/ //alpha和beta各自对应一个conf_pool结构
+
     //数组成员类型为server_pool，创建空间和赋值见server_pool_init
-    struct array       pool;        /* server_pool[] */
+    struct array       pool;        /* server_pool[] */ //
     //创建空间和赋值见core_ctx_create->event_base_create   所有的连接信息都通过event_add_conn把conn加入到该evb中，可以参考proxy_accept
     struct event_base  *evb;        /* event base */
     //从instance取出，见core_ctx_create  数据来源为instance->stats_interval  最终用在epoll_wait的超时时间，见core_loop core_timeout

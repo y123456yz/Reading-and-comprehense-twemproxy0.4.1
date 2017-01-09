@@ -70,10 +70,12 @@ struct conn { //做客户端和服务端对应的相关回调见conn_get
     //可以参考req_client_enqueue_omsgq
     //imsg_q队列记录的是接收到的客户端还没有发送到后端服务器的msg信息，当发送到后端服务器后，会从imsq_q取出然后添加到omsg_q，omsq_q用于等待该请求msg对应的应答信息
     struct msg_tqh      omsg_q;          /* outstanding request Q */
-    //上次解析请求内容未解析的部分用rmgs暂存起来  
+    //上次解析请求内容未解析完成的部分用rmgs暂存起来(例如一个KV过大，客户端发送了一部分过来，则下次客户端再次发送的时候还是使用该rmsg接受)，rmsg就是接受连接上数据的msg  
     //读取后端服务器数据在rsp_recv_next rsp_recv_done中赋值，读取客户端数据在req_recv_next和req_recv_done中赋值
+    //说明之前某个KV数据没读取完毕，因此就不会往后端转发，这次还是使用该msg进行读取新来的数据，见req_recv_next
     struct msg          *rmsg;           /* current message being rcvd */
-    //解析成功的数据数据存到该smsg中，需要发往后端真实服务器，见req_send_next
+    //解析成功的数据存到该smsg中，需要发往后端真实服务器，见req_send_next
+    //req_send_next和rsp_send_next中赋值
     struct msg          *smsg;           /* current message being sent */
 
     //msg_recv或者 proxy_recv
@@ -104,7 +106,7 @@ struct conn { //做客户端和服务端对应的相关回调见conn_get
 
     /* enqueue_inq用来把接收到的客户端KV信息msg入队到c_conn->imsg_q，当该msg发送到后端服务器后，dequeue_inq把该msg从c_conn->imsg_q中摘除掉
      然后分别在req_forward和req_send_done通过enqueue_outq把该msg入队到c_conn->omsg_q和s_conn->omsg_q中等待后端应答该msg对应的ack，
-     后端应答后会创建一个新的msg接收后端应答信息，再通过rsp_forward和rsp_send_done分别把dequeue_outq把该msg摘除，然后通过msg_put
+     后端应答后会创建一个新的msg接收后端应答信息，再通过rsp_forward和rsp_send_done通过dequeue_outq把该msg摘除，然后通过msg_put
      归还给free_msg。同时在rsp_forward中把后端应答的msg和读取客户端信息的msg关联起来。从而可以把后端数据发送给客户端
      
      因此统计信息中的in_queue代表的就是imsg_q中的msg信息，表示还没有发送到后端服务器的msg信息。统计信息中的out_queue代表的就是
@@ -117,7 +119,7 @@ struct conn { //做客户端和服务端对应的相关回调见conn_get
 
     /* enqueue_inq用来把接收到的客户端KV信息msg入队到c_conn->imsg_q，当该msg发送到后端服务器后，dequeue_inq把该msg从c_conn->imsg_q中摘除掉
      然后分别在req_forward和req_send_done通过enqueue_outq把该msg入队到c_conn->omsg_q和s_conn->omsg_q中等待后端应答该msg对应的ack，
-     后端应答后会创建一个新的msg接收后端应答信息，再通过rsp_forward和rsp_send_done分别把dequeue_outq把该msg摘除，然后通过msg_put
+     后端应答后会创建一个新的msg接收后端应答信息，再通过rsp_forward和rsp_send_done通过dequeue_outq把该msg摘除，然后通过msg_put
      归还给free_msg。同时在rsp_forward中把后端应答的msg和读取客户端信息的msg关联起来。从而可以把后端数据发送给客户端
      
      因此统计信息中的in_queue代表的就是imsg_q中的msg信息，表示还没有发送到后端服务器的msg信息。统计信息中的out_queue代表的就是
@@ -140,8 +142,8 @@ struct conn { //做客户端和服务端对应的相关回调见conn_get
     //proxy接收客户端连接，在event_add_conn添加读事件， client conn在event_add_in添加事件
     unsigned            recv_active:1;   /* recv active? */ //记录是否已经把该conn读事件添加到epoll
     //表示epoll检测到read事件，有数据可读或者有客户端连接  每次读取数据完毕，置0，表示数据读取完毕 
-    //proxy_accept中把所有客户端连接都接收完毕后会置recv_ready为0
-    unsigned            recv_ready:1;    /* recv ready? */ //记录是否已经把写conn读事件添加到epoll
+    //proxy_accept中把所有客户端连接都接收完毕后会置recv_ready为0   如果是连接后的读事件，则表示连接上有数据到来
+    unsigned            recv_ready:1;    /* recv ready? */ //记录是否已经把写conn读事件添加到epoll  为1说明有数据到来
     unsigned            send_active:1;   /* send active? */
     //msg_send中置1
     unsigned            send_ready:1;    /* send ready? */
