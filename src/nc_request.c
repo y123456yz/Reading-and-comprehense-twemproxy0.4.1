@@ -130,6 +130,7 @@ req_put(struct msg *msg)
  * A request vector is done if we received responses for all its
  * fragments.
  */
+//如果某个请求后端已经应答了，这里返回true
 bool
 req_done(struct conn *conn, struct msg *msg)
 {
@@ -140,6 +141,7 @@ req_done(struct conn *conn, struct msg *msg)
     ASSERT(conn->client && !conn->proxy);
     ASSERT(msg->request);
 
+    
     if (!msg->done) {
         return false;
     }
@@ -220,7 +222,7 @@ req_done(struct conn *conn, struct msg *msg)
  * A request is in error, if there was an error in receiving response for the
  * given request. A multiget request is in error if there was an error in
  * receiving response for any its fragments.
- */
+ */ //rsp_send_next->req_error
 bool
 req_error(struct conn *conn, struct msg *msg)
 {
@@ -230,7 +232,7 @@ req_error(struct conn *conn, struct msg *msg)
 
     ASSERT(msg->request && req_done(conn, msg));
 
-    if (msg->error) { //返回的信息是错误信息
+    if (msg->error) { //返回的信息是错误信息   说明proxy和后端交互有异常
         return true;
     }
 
@@ -495,7 +497,7 @@ req_recv_next(struct context *ctx, struct conn *conn, bool alloc)
 
     ASSERT(conn->client && !conn->proxy);
 
-    if (conn->eof) {
+    if (conn->eof) { //如果感知到该标记，则会置done位1，在core_core中就会主动关闭连接
         msg = conn->rmsg;
 
         /* client sent eof before sending the entire request */
@@ -517,15 +519,15 @@ req_recv_next(struct context *ctx, struct conn *conn, bool alloc)
          * is able to receive data from the proxy. The proxy closes its
          * half (by sending the second FIN) when the client has no
          * outstanding requests
-         */
-        if (!conn->active(conn)) {
+         */ //只有该conn上面的数据的omsg_q队列上的数据全部发送完成后，才会真正指done为1，然后在core_core中关闭释放链接
+        if (!conn->active(conn)) { //client_active  server_active
             conn->done = 1;
             log_debug(LOG_INFO, "c %d is done", conn->sd);
         }
         return NULL;
     }
 
-    msg = conn->rmsg;
+    msg = conn->rmsg; //req_recv_next  req_recv_done中赋值
     if (msg != NULL) { //说明之前某个KV数据没读取完毕，因此就不会忘后端转发，这次还是使用该msg进行读取新来的数据是得KV成为完整的KV
         ASSERT(msg->request);
         return msg;
@@ -641,7 +643,7 @@ req_filter(struct context *ctx, struct conn *conn, struct msg *msg)
     /*
      * If this conn is not authenticated, we will mark it as noforward,
      * and handle it in the redis_reply handler.
-     */
+     */ //还没和后端redis集群进行认证，则客户端发送过来的命令就不用转发到后端
     if (!conn_authenticated(conn)) {
         msg->noforward = 1;
     }
@@ -649,6 +651,8 @@ req_filter(struct context *ctx, struct conn *conn, struct msg *msg)
     return false;
 }
 
+//触发执行//core_core->core_send->msg_send->rsp_send_next->rsp_make_error流程，然后在rsp_make_error中把错误提示发送到客户端
+//错误信息内容在rsp_make_error中构建
 static void
 req_forward_error(struct context *ctx, struct conn *conn, struct msg *msg)
 {
@@ -661,6 +665,7 @@ req_forward_error(struct context *ctx, struct conn *conn, struct msg *msg)
               strerror(errno));
 
     msg->done = 1;
+    //触发rsp_make_error构建错误字符串内容发送
     msg->error = 1;
     msg->err = errno;
 
@@ -671,7 +676,8 @@ req_forward_error(struct context *ctx, struct conn *conn, struct msg *msg)
     }
 
     if (req_done(conn, TAILQ_FIRST(&conn->omsg_q))) {
-        status = event_add_out(ctx->evb, conn); //该错误msg会通过一次epoll写事件发送出去
+        //触发执行//core_core->core_send->msg_send->rsp_send_next->rsp_make_error流程，然后在rsp_make_error中把错误提示发送到客户端
+        status = event_add_out(ctx->evb, conn); //该错误msg会通过一次epoll写事件然后通过core_send发送出去
         if (status != NC_OK) {
             conn->err = errno;
         }
@@ -828,6 +834,7 @@ req_forward(struct context *ctx, struct conn *c_conn, struct msg *msg)
 * server.
 */
 
+//msg_parse 和 msg_parsed中赋值
 void
 req_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
               struct msg *nmsg)
@@ -846,7 +853,7 @@ req_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
 
     //如果读取出来的KV都是完整的，则conn->rmsg = NULL,如果读取内核协议栈缓冲区的数据最好一个KV没有读取完整，则conn->rmsg = nmsg(也就是新的一个msg)
     /* enqueue next message (request), if any */
-    conn->rmsg = nmsg;
+    conn->rmsg = nmsg; //如果是一个完整的KV，则rmsg赋值为NULL
 
     if (req_filter(ctx, conn, msg)) {
         return; //客户端发送了quit命令过来，则不用再处理KV对了
@@ -859,7 +866,7 @@ req_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
             return;
         }
 
-        status = msg->reply(msg);
+        status = msg->reply(msg); //redis_reply
         if (status != NC_OK) {
             conn->err = errno;
             return;

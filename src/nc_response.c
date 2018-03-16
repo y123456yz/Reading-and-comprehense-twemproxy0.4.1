@@ -42,7 +42,8 @@ rsp_put(struct msg *msg)
 }
 
 static struct msg *
-rsp_make_error(struct context *ctx, struct conn *conn, struct msg *msg)
+rsp_make_error(struct context *ctx, struct conn *conn, struct msg *msg) 
+//这里的msg就是从客户端收到数据后，memcache_parse_req解析参数msg，他们是同一个
 {
     struct msg *pmsg;        /* peer message (response) */
     struct msg *cmsg, *nmsg; /* current and next message (request) */
@@ -61,6 +62,7 @@ rsp_make_error(struct context *ctx, struct conn *conn, struct msg *msg)
             nmsg = TAILQ_NEXT(cmsg, c_tqe);
 
             /* dequeue request (error fragment) from client outq */
+            //先把该conn链接上的数据释放掉
             conn->dequeue_outq(ctx, conn, cmsg);
             if (err == 0 && cmsg->err != 0) {
                 err = cmsg->err;
@@ -80,6 +82,7 @@ rsp_make_error(struct context *ctx, struct conn *conn, struct msg *msg)
         rsp_put(pmsg);
     }
 
+    //返回一个新的msg
     return msg_get_error(conn->redis, err);
 }
 
@@ -130,7 +133,7 @@ rsp_recv_next(struct context *ctx, struct conn *conn, bool alloc)
 
     ASSERT(!conn->client && !conn->proxy);
 
-    if (conn->eof) { //后端进程异常，读出错，会进入这里面
+    if (conn->eof) { //后端进程异常，读出错，会进入这里面   eof为1，则需要关闭连接
         msg = conn->rmsg;
 
         /* server sent eof before sending the entire request */
@@ -351,7 +354,7 @@ rsp_forward_stats(struct context *ctx, struct server *server, struct msg *msg, u
 //rsp_send_done从客户端连接conn->dequeue_outq中出对  rsp_forward从服务端连接s_conn->dequeue_outq中出对
 static void
 rsp_forward(struct context *ctx, struct conn *s_conn, struct msg *msg)
-{
+{ //把后端应答回来的msg和客户端msg关联在一起,然后通过req_done函数里面的event_add_out，来触发客户端conn把这些后端msg发送出去
     rstatus_t status;
     struct msg *pmsg;
     struct conn *c_conn;
@@ -363,27 +366,30 @@ rsp_forward(struct context *ctx, struct conn *s_conn, struct msg *msg)
     /* response from server implies that server is ok and heartbeating */
     server_ok(ctx, s_conn);
 
+    
     /* dequeue peer message (request) from server */
-    pmsg = TAILQ_FIRST(&s_conn->omsg_q);
+    pmsg = TAILQ_FIRST(&s_conn->omsg_q); //omsg_q记录客户端的msg地址
     ASSERT(pmsg != NULL && pmsg->peer == NULL);
     ASSERT(pmsg->request && !pmsg->done);
 
     /* pmsg为接收客户端报文的msg信息，参数msg为后端应答回来的msg信息 */
-    s_conn->dequeue_outq(ctx, s_conn, pmsg); //这里取出接收的客户端msg信息，这里面存储有该msg所对应的conn信息，从而可以把后端应答回来的msg通过该conn发送出去
+    s_conn->dequeue_outq(ctx, s_conn, pmsg);  //req_server_dequeue_omsgq 
     pmsg->done = 1;
 
     /* 把接收的客户端msg信息和后端应答回来的msg信息进行关联 */
     /* establish msg <-> pmsg (response <-> request) link */
-    pmsg->peer = msg;
+    pmsg->peer = msg; //msg最终在rsp_send_next中发送，为客户端对应的peer，也就是后端应答msg
     msg->peer = pmsg;
 
-    msg->pre_coalesce(msg);
+    msg->pre_coalesce(msg); //memcache_pre_coalesce
 
     c_conn = pmsg->owner;
     ASSERT(c_conn->client && !c_conn->proxy);
 
     if (req_done(c_conn, TAILQ_FIRST(&c_conn->omsg_q))) {
-        status = event_add_out(ctx->evb, c_conn);
+//如意如果set了两个请求到后端，但是第二个set先返回，则不会走到这里面来，只有第二个set返回后才会走到这里执行add out从而把数据发送出去
+//触发执行core_core->core_send->msg_send->rsp_send_next，实现rsp数据的真正发送
+        status = event_add_out(ctx->evb, c_conn); 
         if (status != NC_OK) {
             c_conn->err = errno;
         }
@@ -435,7 +441,7 @@ rsp_forward(struct context *ctx, struct conn *s_conn, struct msg *msg)
 void
 rsp_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
               struct msg *nmsg)
-{
+{ //msg_parsed中调用执行
     ASSERT(!conn->client && !conn->proxy);
     ASSERT(msg != NULL && conn->rmsg == msg);
     ASSERT(!msg->request);
@@ -443,7 +449,7 @@ rsp_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
     ASSERT(nmsg == NULL || !nmsg->request);
 
     /* enqueue next message (response), if any */
-    conn->rmsg = nmsg;
+    conn->rmsg = nmsg; //结合msg_parsed来理解
 
     if (rsp_filter(ctx, conn, msg)) {
         return;
@@ -489,20 +495,23 @@ rsp_recv_done(struct context *ctx, struct conn *conn, struct msg *msg,
 * of a single request response, where (a) and (b) handle request from
 * client, while (c) and (d) handle the corresponding response from the
 * server.
-*/
+*/ //core_core->core_send->msg_send->rsp_send_next
 //发往客户端用rsp_send_next 发往后端服务器用req_send_next    msg_send或者msg_send_chain中执行
 struct msg *
-rsp_send_next(struct context *ctx, struct conn *conn)
-{//取出需要发送的msg队列上的一条msg
+rsp_send_next(struct context *ctx, struct conn *conn) 
+{//取出需要发送的msg队列上的一条msg,然后在msg_send中发送出去
     rstatus_t status;
     struct msg *msg, *pmsg; /* response and it's peer request */
 
     ASSERT(conn->client && !conn->proxy);
 
-    pmsg = TAILQ_FIRST(&conn->omsg_q);
+    //pmsg为请求的,msg为应答的
+    
+    pmsg = TAILQ_FIRST(&conn->omsg_q); //只有一个msg数据发送完毕才会通过msg_send_chain->rsp_send_done从队列中摘除
     if (pmsg == NULL || !req_done(conn, pmsg)) {
         /* nothing is outstanding, initiate close? */
-        if (pmsg == NULL && conn->eof) {
+        //只有omsg_q队列为空的时候，才可以置done标记，然后在core_core中close连接
+        if (pmsg == NULL && conn->eof) { //eof为1，数据发完的时候会职位done标记，在core_core中检测到done标记会关闭连接，见rsp_send_next
             conn->done = 1;
             log_debug(LOG_INFO, "c %d is done", conn->sd);
         }
@@ -515,21 +524,22 @@ rsp_send_next(struct context *ctx, struct conn *conn)
         return NULL;
     }
 
-    msg = conn->smsg;
-    if (msg != NULL) {
+    msg = conn->smsg;  
+    if (msg != NULL) {  //msg_send_chain中会置位NULL，好像不会走到这里面来
         ASSERT(!msg->request && msg->peer != NULL);
         ASSERT(req_done(conn, msg->peer));
-        pmsg = TAILQ_NEXT(msg->peer, c_tqe);
+        pmsg = TAILQ_NEXT(msg->peer, c_tqe); //pmsg为请求的,msg为应答的
     }
 
-    if (pmsg == NULL || !req_done(conn, pmsg)) {
+    if (pmsg == NULL || !req_done(conn, pmsg)) { 
+    //必须该client的msg对应的后端应答了才可以发送,配合rsp_forward阅读
         conn->smsg = NULL;
         return NULL;
     }
     ASSERT(pmsg->request && !pmsg->swallow);
 
-    if (req_error(conn, pmsg)) { //msg是否error
-        msg = rsp_make_error(ctx, conn, pmsg);
+    if (req_error(conn, pmsg)) { //msg是否error，及和后端释放有异常，例如后端集群
+        msg = rsp_make_error(ctx, conn, pmsg); 
         if (msg == NULL) {
             conn->err = errno;
             return NULL;
@@ -538,7 +548,7 @@ rsp_send_next(struct context *ctx, struct conn *conn)
         pmsg->peer = msg;
         stats_pool_incr(ctx, conn->owner, forward_error);
     } else {
-        msg = pmsg->peer;
+        msg = pmsg->peer; //msg是客户端msg对应的peer，也就是后端应答的msg,配合rsp_forward阅读
     }
     ASSERT(!msg->request);
 

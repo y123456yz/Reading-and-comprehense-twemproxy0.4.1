@@ -138,7 +138,9 @@ memcache_touch(struct msg *r)
 //命令支持https://github.com/twitter/twemproxy/blob/master/notes/redis.md
 void
 memcache_parse_req(struct msg *r)
-{
+{ 
+//从fd读取完数据后存入msg->mhdr链上，解析其中的数据，每解析到一个完整的KV后，该函数返回成功，然后在后面的msg_parsed来从新
+//通过msg_get获取获取一个空的msg，来指向这个完整的KV
     struct mbuf *b;
     uint8_t *p, *m;
     uint8_t ch;
@@ -169,7 +171,7 @@ memcache_parse_req(struct msg *r)
     } state;
 
     state = r->state;
-    b = STAILQ_LAST(&r->mhdr, mbuf, next);
+    b = STAILQ_LAST(&r->mhdr, mbuf, next); //注意是LAST
 
     ASSERT(r->request);
     ASSERT(!r->redis);
@@ -181,6 +183,7 @@ memcache_parse_req(struct msg *r)
     ASSERT(r->pos != NULL);
     ASSERT(r->pos >= b->pos && r->pos <= b->last);
 
+    //msg_recv_chain中如果是mbuf满了，会新分配一个mbuf,pos指向这个mbuf->pos
     for (p = r->pos; p < b->last; p++) {
         ch = *p;
 
@@ -536,11 +539,23 @@ memcache_parse_req(struct msg *r)
             break;
 
         case SW_VAL:
+            /*
+            set yang 0 2 3
+            bbb
+            STORED
+
+            printf("yang test p:%p, %s\r\n", p, p);  对应bbb字符串
+            printf("yang test p:%p, %s\r\n", m, m);  对应bbb后面的\r\n
+            printf("yang test p:%p, %s\r\n", b->last, b->last); 
+            yang test p:0x1d51610, bbb
+            yang test p:0x1d51613, 
+            yang test p:0x1d51615,
+            */
             m = p + r->vlen;
-            if (m >= b->last) {
+            if (m >= b->last) { //说明value数据还没到齐
                 ASSERT(r->vlen >= (uint32_t)(b->last - p));
-                r->vlen -= (uint32_t)(b->last - p);
-                m = b->last - 1;
+                r->vlen -= (uint32_t)(b->last - p); //说明还有这么多vlen在r->mhdr的下一个mbuf中
+                m = b->last - 1; 
                 p = m; /* move forward by vlen bytes */
                 break;
             }
@@ -702,15 +717,19 @@ memcache_parse_req(struct msg *r)
      * read into new mbuf.
      */
     ASSERT(p == b->last);
+    //这次已经解析到pos处，下次从pos处继续解析
     r->pos = p;
     r->state = state;
-
+    
     if (b->last == b->end && r->token != NULL) {
+    //假设一个mbuf(16K)用完了，并且这个16K空间读取到了2个全KV和一个不全KV，则解析最后一个不全KV的时候走到这里
         r->pos = r->token;
         r->token = NULL;
-        r->result = MSG_PARSE_REPAIR;
-    } else {
-        r->result = MSG_PARSE_AGAIN;
+        //需要从新获取一个新的msg来读取数据，并把最后一个为解析的KV数据拷贝到新的msg中
+        r->result = MSG_PARSE_REPAIR; //配合msg_repair函数阅读
+    } else { //例如一次read读取的时候读到2个全KV和一个不全KV，他们总共数据长度也没用完一个mbuf，则解析到最后一个不全KV的时候走这里
+        r->result = MSG_PARSE_AGAIN; 
+        //如果mbuf已经满了，msg_recv_chain中会再次分配一个mbuf加入msg链表上，继续读取数据，然后继续解析，mbuf还有空间，则继续使用之前mbuf
     }
 
     log_hexdump(LOG_VERB, b->pos, mbuf_length(b), "parsed req %"PRIu64" res %d "
@@ -718,9 +737,11 @@ memcache_parse_req(struct msg *r)
                 r->state, r->pos - b->pos, b->last - b->pos);
     return;
 
-done:
+done: //解析到一个完整KV
     ASSERT(r->type > MSG_UNKNOWN && r->type < MSG_SENTINEL);
-    r->pos = p + 1;
+    r->pos = p + 1; 
+    //记录下次继续解析的位置  b->pos还是指向该mbuf->pos，[mbuf->pos,r->pos]间的数据即为本次一个完整KV的数据，该函数获取到一个完整
+    //KV后，在msg_parsed以后的流程把[mbuf->pos,r->pos]数据发送出去
     ASSERT(r->pos <= b->last);
     r->state = SW_START;
     r->result = MSG_PARSE_OK;
@@ -1046,9 +1067,11 @@ memcache_parse_rsp(struct msg *r)
 
         case SW_VAL:
             m = p + r->vlen;
-            if (m >= b->last) {
+            if (m >= b->last) { 
+                //如果这里是>,该msg中的value不全，则需要跳出while继续下一次继续接收value解析，
+                //如果这里是=，则说明msg是够的，继续在本次while中解析\r\n
                 ASSERT(r->vlen >= (uint32_t)(b->last - p));
-                r->vlen -= (uint32_t)(b->last - p);
+                r->vlen -= (uint32_t)(b->last - p); //value还差这么多字节
                 m = b->last - 1;
                 p = m; /* move forward by vlen bytes */
                 break;
@@ -1162,14 +1185,14 @@ memcache_parse_rsp(struct msg *r)
     r->pos = p;
     r->state = state;
 
-    if (b->last == b->end && r->token != NULL) {
+    if (b->last == b->end && r->token != NULL) { //该msg已经解析完了，但是value数据还是没到完
         if (state <= SW_RUNTO_VAL || state == SW_CRLF || state == SW_ALMOST_DONE) {
             r->state = SW_START;
         }
         r->pos = r->token;
         r->token = NULL;
         r->result = MSG_PARSE_REPAIR;
-    } else {
+    } else { //VALUE yang 0 3\r\n解析完毕，等待下一个进行value解析
         r->result = MSG_PARSE_AGAIN;
     }
 

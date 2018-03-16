@@ -22,6 +22,7 @@
 # include <config.h>
 #endif
 
+#define HAVE_DEBUG_LOG 
 #ifdef HAVE_DEBUG_LOG
 # define NC_DEBUG_LOG 1
 #endif

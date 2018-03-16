@@ -205,7 +205,8 @@ struct msg { //真正存储数据的是mbuf，由msg->pos指向mbuf空间空闲位置，该msg挂到ms
     TAILQ_ENTRY(msg)     s_tqe;           /* link in server q */
     TAILQ_ENTRY(msg)     m_tqe;           /* link in send q / free q */
 
-    uint64_t             id;              /* message id */ //每次msg_get自增
+    uint64_t             id;              /* message id */ //每次msg_get自增  
+    //该
     struct msg           *peer;           /* message peer */
     //所属的conn,见msg_get
     struct conn          *owner;          /* message owner - client | server */
@@ -291,7 +292,8 @@ struct msg { //真正存储数据的是mbuf，由msg->pos指向mbuf空间空闲位置，该msg挂到ms
     struct msg           **frag_seq;      /* sequence of fragment message, map from keys to fragments*/
 
     err_t                err;             /* errno on error? */ //获取网络异常的错误号
-    unsigned             error:1;         /* error? */ //异常
+    //req_forward_error中置1 生效判断见req_error，如果为1然后执行rsp_make_error
+    unsigned             error:1;         /* error? */ //异常  
     unsigned             ferror:1;        /* one or more fragments are in error? */
     //是否是客户端请求对应的msg
     unsigned             request:1;       /* request? or response? */ //请求还是应答
@@ -299,8 +301,9 @@ struct msg { //真正存储数据的是mbuf，由msg->pos指向mbuf空间空闲位置，该msg挂到ms
     unsigned             quit:1;          /* quit request? */
     //只有在memcache_parse_req会置1，只有客户端发送过来带有noreply的时候才置1
     unsigned             noreply:1;       /* noreply? */ //该msg需要得到应答，添加到红黑树超时定时器，参考req_server_enqueue_imsgq
-    //如果和后端配置有认证过程，但是却没有认证成功，则这里置1，见req_filter
+    //客户端发送过来的是AUTH认证命令，则这里置1，见req_filter
     unsigned             noforward:1;     /* not need forward (example: ping) */ 
+    //后端应答后，需要删除定时器，见core_timeout
     unsigned             done:1;          /* done? */ //标记该msg是否得到了后端的应答，见rsp_forward
     unsigned             fdone:1;         /* all fragments are done? */ //分片到后端多个服务器的请求是否得到了应答
     unsigned             swallow:1;       /* swallow response? */

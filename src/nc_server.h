@@ -183,7 +183,7 @@ struct server_pool { //里面的相关信息实际是最终来源还是配置文件   一个大server对
     //failure_count和server_failure_limit配合，见server_failure
     uint32_t           server_failure_limit; /* server failure limit */
     struct string      redis_auth;           /* redis_auth password (matches requirepass on redis) */
-    //是否需要认真
+    //是否需要认真  redis_auth 配置了则需要
     unsigned           require_auth;         /* require_auth? */
     //是一个boolean值，用于控制twemproxy是否应该根据server的连接状态重建群集。这个连接状态是由server_failure_limit阀值来控制。  默认是false。
     //是否在节点故障无法响应时自动摘除该节点 真正生效的地方在函数server_failure和server_pool_update

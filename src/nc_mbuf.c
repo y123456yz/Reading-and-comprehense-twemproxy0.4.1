@@ -245,7 +245,8 @@ mbuf_copy(struct mbuf *mbuf, uint8_t *pos, size_t n)
  *
  * Return new mbuf t, if the split was successful.
  */
-//把h对应的mbuf中未解析的内容拷贝到nbuf中，mbuf的last指针指向已解析数据部分的末尾
+//把h对应的mbuf中未解析的内容拷贝到nbuf中，mbuf的last指针指向已解析数据部分的末尾,例如value这一行，数据还没到全，则把之前的value拷贝到
+//新的nbuf中，继续接收数据
 struct mbuf *
 mbuf_split(struct mhdr *h, uint8_t *pos, mbuf_copy_t cb, void *cbarg)
 {
@@ -254,7 +255,7 @@ mbuf_split(struct mhdr *h, uint8_t *pos, mbuf_copy_t cb, void *cbarg)
 
     ASSERT(!STAILQ_EMPTY(h));
 
-    mbuf = STAILQ_LAST(h, mbuf, next);
+    mbuf = STAILQ_LAST(h, mbuf, next); //注意是LAST
     ASSERT(pos >= mbuf->pos && pos <= mbuf->last);
 
     nbuf = mbuf_get();

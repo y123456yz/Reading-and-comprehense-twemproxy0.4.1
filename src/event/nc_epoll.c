@@ -266,7 +266,7 @@ event_wait(struct event_base *evb, int timeout)
                     events |= EVENT_WRITE;
                 }
 
-                if (evb->cb != NULL) { //执行事件回调函数  事件回调函数为core_core
+                if (evb->cb != NULL) { //执行事件回调函数  事件回调函数为 core_core
                     evb->cb(ev->data.ptr, events);
                 }
             }
@@ -289,10 +289,10 @@ event_wait(struct event_base *evb, int timeout)
 
         log_error("epoll wait on e %d with %d events failed: %s", ep, nevent,
                   strerror(errno));
-        return -1;
+        return;
     }
 
-    NOT_REACHED();
+    return;
 }
 
 void

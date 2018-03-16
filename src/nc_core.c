@@ -196,8 +196,8 @@ core_recv(struct context *ctx, struct conn *conn) //epoll有read事件产生
 {
     rstatus_t status;
 
-    status = conn->recv(ctx, conn); 
-    //proxy接收客户端连接用proxy_recv,如果是接收客户端数据或者读取后端redis服务器数据，用msg_recv
+    status = conn->recv(ctx, conn);  //msg_recv
+    //proxy接收客户端连接用 proxy_recv,如果是接收客户端数据或者读取后端redis服务器数据，用msg_recv
     if (status != NC_OK) {
         log_debug(LOG_INFO, "recv on %c %d failed: %s",
                   conn->client ? 'c' : (conn->proxy ? 'p' : 's'), conn->sd,
@@ -207,6 +207,7 @@ core_recv(struct context *ctx, struct conn *conn) //epoll有read事件产生
     return status;
 }
 
+//core_core->core_send->msg_send
 static rstatus_t
 core_send(struct context *ctx, struct conn *conn)
 {
@@ -268,6 +269,7 @@ core_error(struct context *ctx, struct conn *conn)
     core_close(ctx, conn);
 }
 
+//如果后端超时还没有应答，则关闭和客户端的链接
 static void
 core_timeout(struct context *ctx)
 {
@@ -311,6 +313,7 @@ core_timeout(struct context *ctx)
         msg_tmo_delete(msg); //发送了命令道后端服务器，但是后端超时都没有应答
         conn->err = ETIMEDOUT;
 
+        //如果后端超时还没有应答，则关闭和客户端的链接
         core_close(ctx, conn);
     }
 }
@@ -345,6 +348,7 @@ core_core(void *arg, uint32_t events)
     /* read takes precedence over write */
     if (events & EVENT_READ) { //read事件
         status = core_recv(ctx, conn);
+        
         if (status != NC_OK || conn->done || conn->err) {
             core_close(ctx, conn);
             return NC_ERROR;

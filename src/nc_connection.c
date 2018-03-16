@@ -252,7 +252,7 @@ conn_get(void *owner, bool client, bool redis)
     return conn;
 }
 
-//listen监听的时候会调用该函数，conn_get_proxy
+//listen监听的时候会调用该函数，conn_get_proxy       proxy_each_init中执行
 struct conn *
 conn_get_proxy(void *owner) //owner类型为server_pool
 {
@@ -350,7 +350,7 @@ conn_recv(struct conn *conn, void *buf, size_t size)
     ASSERT(conn->recv_ready);
 
     for (;;) {
-        n = nc_read(conn->sd, buf, size);
+        n = nc_read(conn->sd, buf, size); //注意，一次读取后，buf会自动移动n字节
 
         log_debug(LOG_VERB, "recv on sd %d %zd of %zu", conn->sd, n, size);
 
@@ -362,7 +362,7 @@ conn_recv(struct conn *conn, void *buf, size_t size)
             return n;
         }
 
-        if (n == 0) {
+        if (n == 0) { //一般不会走到这里面来，一般都是从上面的n>0返回
             conn->recv_ready = 0;
             conn->eof = 1;
             log_debug(LOG_INFO, "recv on sd %d eof rb %zu sb %zu", conn->sd,

@@ -710,7 +710,7 @@ redis_parse_req(struct msg *r) //redis命令解析
                     break;
                 }
 
-                if (str4icmp(m, 'a', 'u', 't', 'h')) {
+                if (str4icmp(m, 'a', 'u', 't', 'h')) { //认证命令
                     r->type = MSG_REQ_REDIS_AUTH;
                     r->noforward = 1;
                     break;
@@ -2729,6 +2729,14 @@ redis_fragment(struct msg *r, uint32_t ncontinuum, struct msg_tqh *frag_msgq)
     }
 }
 
+/*
+#define RSP_STRING(ACTION)                                                          \
+    ACTION( ok,               "+OK\r\n"                                           ) \
+    ACTION( pong,             "+PONG\r\n"                                         ) \
+    ACTION( invalid_password, "-ERR invalid password\r\n"                         ) \
+    ACTION( auth_required,    "-NOAUTH Authentication required\r\n"               ) \
+    ACTION( no_password,      "-ERR Client sent AUTH, but no password is set\r\n" ) \
+*/  //req_recv_done 中执行
 rstatus_t
 redis_reply(struct msg *r)
 {
@@ -2738,11 +2746,12 @@ redis_reply(struct msg *r)
     ASSERT(response != NULL && response->owner != NULL);
 
     c_conn = response->owner;
-    if (r->type == MSG_REQ_REDIS_AUTH) {
+    if (r->type == MSG_REQ_REDIS_AUTH) { //客户端发送的是AUTH命令   
+        //客户端和twemproxy进行AUTH认证
         return redis_handle_auth_req(r, response);
     }
 
-    if (!conn_authenticated(c_conn)) {
+    if (!conn_authenticated(c_conn)) {  //twemproxy配置为需要认证，但是客户端第一个过来的命令不是AUTH xxx，则提示客户端需要认证
         return msg_append(response, rsp_auth_required.data, rsp_auth_required.len);
     }
 
@@ -2847,6 +2856,15 @@ redis_post_coalesce(struct msg *r)
     }
 }
 
+/*
+#define RSP_STRING(ACTION)                                                          \
+    ACTION( ok,               "+OK\r\n"                                           ) \
+    ACTION( pong,             "+PONG\r\n"                                         ) \
+    ACTION( invalid_password, "-ERR invalid password\r\n"                         ) \
+    ACTION( auth_required,    "-NOAUTH Authentication required\r\n"               ) \
+    ACTION( no_password,      "-ERR Client sent AUTH, but no password is set\r\n" ) \
+*/
+//客户端和twemproxy进行AUTH认证
 static rstatus_t
 redis_handle_auth_req(struct msg *req, struct msg *rsp)
 {
@@ -2861,20 +2879,21 @@ redis_handle_auth_req(struct msg *req, struct msg *rsp)
 
     pool = (struct server_pool *)conn->owner;
 
-    if (!pool->require_auth) {
+    if (!pool->require_auth) { //twemproxy配置为不需要认证但是客户端发送auth password过来，则返回客户端不需要认证的回复
         /*
          * AUTH command from the client in absence of a redis_auth:
          * directive should be treated as an error
-         */
+         */  
         return msg_append(rsp, rsp_no_password.data, rsp_no_password.len);
     }
 
+    //twemproxy代理配置了redis_auth认证，则需比较auth xxx中的xxx和redis_auth配置项字符串是否相等，相等返回true
     kpos = array_get(req->keys, 0);
     key = kpos->start;
     keylen = (uint32_t)(kpos->end - kpos->start);
     valid = (keylen == pool->redis_auth.len) &&
             (memcmp(pool->redis_auth.data, key, keylen) == 0) ? true : false;
-    if (valid) {
+    if (valid) { //客户端和twemproxy认证成功
         conn->authenticated = 1;
         return msg_append(rsp, rsp_ok.data, rsp_ok.len);
     }
@@ -2886,6 +2905,8 @@ redis_handle_auth_req(struct msg *req, struct msg *rsp)
      * We mark the connection has unauthenticated until the client
      * reauthenticates with the correct password
      */
+
+    //认证失败
     conn->authenticated = 0;
     return msg_append(rsp, rsp_invalid_password.data, rsp_invalid_password.len);
 }

@@ -332,6 +332,7 @@ msg_get(struct conn *conn, bool request, bool redis)
     return msg;
 }
 
+//如果找不到路由或者后端集群连接不上，或者集群状态(-CLUSTERDOWN The cluster is down)不可用，都会走到这里
 struct msg *
 msg_get_error(bool redis, err_t err)
 {
@@ -586,14 +587,14 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
     struct mbuf *mbuf, *nbuf;
 
     mbuf = STAILQ_LAST(&msg->mhdr, mbuf, next); //获取该msg所对应的mbuf
-    if (msg->pos == mbuf->last) { //一般会满足该条件  表示mbuf中所有KV对数据格式都正确
+    if (msg->pos == mbuf->last) { //一般会满足该条件  表示mbuf中只有一个完整的KV,如果该mbuf中还有未解析的数据，则走if后面的流程
         /* no more data to parse */
         conn->recv_done(ctx, conn, msg, NULL); //req_recv_done  rsp_recv_done    
         //如果读取出来的KV都是完整的，则conn->rmsg = NULL,如果读取内核协议栈缓冲区的数据最好一个KV没有读取完整，则conn->rmsg = nmsg(也就是新的一个msg)
         return NC_OK;
     }
 
-    //如果有多个KV过来，其中前面的KV全部一次性读取到了，但是最后面的一个KV，value还没有读取完毕，则需要再次读取
+    //如果有多个KV过来，memcache_parse_req会解析出一个完整的KV，然后走到这里，这时候就需要把解析出的KV和还未解析的mbuf数据进行分开
     /*
      * Input mbuf has un-parsed data. Split mbuf of the current message msg
      * into (mbuf, nbuf), where mbuf is the portion of the message that has
@@ -601,11 +602,12 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
      * Parse nbuf as a new message nmsg in the next iteration.
      */
     nbuf = mbuf_split(&msg->mhdr, msg->pos, NULL, NULL);
-    //把msg中未解析的数据(例如最后一个KV还未读完，则把这部分数据拷贝到nbuf中)，最终nbuf中是最后一部分未解析完成的数据，mbuf中是已经读取解析成功的KV数据
+    //最终nbuf中是最后一部分未解析完成的数据，mbuf中是已经读取解析成功的KV数据
     if (nbuf == NULL) {
         return NC_ENOMEM;
     }
 
+    //获取一个msg来专门指向解析完毕的一个完整KV，只是指针指向，不会有内存拷贝
     nmsg = msg_get(msg->owner, msg->request, conn->redis);
     if (nmsg == NULL) {
         mbuf_put(nbuf);
@@ -618,21 +620,25 @@ msg_parsed(struct context *ctx, struct conn *conn, struct msg *msg)
     nmsg->mlen = mbuf_length(nbuf);
     msg->mlen -= nmsg->mlen; //msg中未解析的数据拷贝到了nbuf，中因此把这部分内容去除
 
+    //req_recv_done  rsp_recv_done 
     //如果读取出来的KV都是完整的，则conn->rmsg = NULL,如果读取内核协议栈缓冲区的数据最好一个KV没有读取完整，则conn->rmsg = nmsg(也就是新的一个msg)
-    conn->recv_done(ctx, conn, msg, nmsg); //msg为原始接收到客户端数据解析后的内容，nmsg为未解析部分重新保存到nmsg中
+    conn->recv_done(ctx, conn, msg, nmsg); 
+    //msg为原始接收到客户端数据解析后的内容，nmsg为未解析部分重新保存到nmsg中，msg_recv中继续解析nmsg
 
     return NC_OK;
 }
 
-static rstatus_t //说明mbuf空间已经用完，需要再次分配一个mbuf空间
+static rstatus_t //说明mbuf空间已经用完，需要再次分配一个mbuf空间，并把之前解析未完成的数据拷贝到这个新的mbuf中，等待下一次继续解析
 msg_repair(struct context *ctx, struct conn *conn, struct msg *msg)
 {
     struct mbuf *nbuf;
 
+    //把已解析的完整KV放在原mbuf，并从h链表中把mbuf摘除，把原mbuf中未解析的数据重新拷贝到新的nbuf中
     nbuf = mbuf_split(&msg->mhdr, msg->pos, NULL, NULL);
     if (nbuf == NULL) {
         return NC_ENOMEM;
     }
+    //把为解析数据所在的nbuf挂载链表上去，这样链表上的数据全是未解析的了
     mbuf_insert(&msg->mhdr, nbuf);
     msg->pos = nbuf->pos;
 
@@ -646,19 +652,24 @@ msg_parse(struct context *ctx, struct conn *conn, struct msg *msg)
 
     if (msg_empty(msg)) {
         /* no data to parse */
-        conn->recv_done(ctx, conn, msg, NULL);
+        conn->recv_done(ctx, conn, msg, NULL); 
         return NC_OK;
     }
 
     //解析msg->mbuf中的数据，注意mbuf中pos指针是没有变化的，还是指向以前的位置，是通过r->pos来一步步解析的
     msg->parser(msg);//redis_parse_req  redis_parse_rsp  memcache_parse_req  memcache_parse_rsp
 
+    //一个mbuf中存储了4个完整KV，第五个KV数据不全，并且用完了一个完整的mbuf
+    
     switch (msg->result) {
+    //前面4个KV会走到这里走四次
     case MSG_PARSE_OK: //解析成功，进行相关处理
         status = msg_parsed(ctx, conn, msg);
         break;
 
-    case MSG_PARSE_REPAIR: //说明mbuf空间已经用完，需要再次分配一个mbuf空间
+    //解析这个mbuf的第五个不全的KV会走到这里
+    case MSG_PARSE_REPAIR: 
+    //说明mbuf空间已经解析完，需要再次分配一个新的mbuf,注意value长度不能超过mbuf空间大小，-m配置，超过了即使分配新的mbuf空间也不够
         status = msg_repair(ctx, conn, msg);
         break;
 
@@ -725,8 +736,8 @@ msg_recv_chain(struct context *ctx, struct conn *conn, struct msg *msg)
     mbuf = STAILQ_LAST(&msg->mhdr, mbuf, next); //查找msg所处队列的最后
     //KV数据过来后发现该msg上面一个mbuf都没有，或者改msg上面的mbuf已经用完了
     if (mbuf == NULL || mbuf_full(mbuf)) {//获取msg对应的mbuf上是否还有空余空间，没有则重新分配一个mbuf，并加入到mhdr链中
-        mbuf = mbuf_get(); //从新获取一个mbuf
-        if (mbuf == NULL) {
+        mbuf = mbuf_get(); //从新获取一个mbuf   外层函数req_recv_next只是获取一个msg，但是没有mbuf，这里获取mbuf加入到msg链表中
+        if (mbuf == NULL) {   
             return NC_ENOMEM;
         }
         mbuf_insert(&msg->mhdr, mbuf); //
@@ -757,11 +768,13 @@ msg_recv_chain(struct context *ctx, struct conn *conn, struct msg *msg)
 
         /* get next message to parse */ /* req_recv_next; rsp_recv_next; */
         nmsg = conn->recv_next(ctx, conn, false); //注意这里是false
-        if (nmsg == NULL || nmsg == msg) {
+        //nmsg为属于未解析数据部分的新msg
+        if (nmsg == NULL || nmsg == msg) { //说明数据解析完毕，需要继续读取数据，配合msg_parsed阅读
             /* no more data to parse */
             break;
         }
 
+        //结合msg_parsed阅读，剩余数据在新nmsg中，继续解析
         msg = nmsg; //循环继续解析
     }
 
@@ -818,7 +831,7 @@ msg_recv(struct context *ctx, struct conn *conn)
     conn->recv_ready = 1;
     do {
         //接收到客户端数据执行req_recv_next   接收后端返回的数据执行rsp_recv_next
-        msg = conn->recv_next(ctx, conn, true);
+        msg = conn->recv_next(ctx, conn, true);  //获取一个msg
         if (msg == NULL) {
             return NC_OK;
         }
@@ -832,6 +845,7 @@ msg_recv(struct context *ctx, struct conn *conn)
     return NC_OK;
 }
 
+//msg_send
 static rstatus_t
 msg_send_chain(struct context *ctx, struct conn *conn, struct msg *msg)
 {
@@ -862,11 +876,11 @@ msg_send_chain(struct context *ctx, struct conn *conn, struct msg *msg)
     for (;;) {
         ASSERT(conn->smsg == msg);
 
-        TAILQ_INSERT_TAIL(&send_msgq, msg, m_tqe);
+        TAILQ_INSERT_TAIL(&send_msgq, msg, m_tqe); //msg添加到send_msgq队列
 
         for (mbuf = STAILQ_FIRST(&msg->mhdr);
              mbuf != NULL && array_n(&sendv) < NC_IOV_MAX && nsend < limit;
-             mbuf = nbuf) {
+             mbuf = nbuf) { //msg组包到iov
             nbuf = STAILQ_NEXT(mbuf, next);
 
             if (mbuf_empty(mbuf)) {
@@ -889,7 +903,8 @@ msg_send_chain(struct context *ctx, struct conn *conn, struct msg *msg)
             break;
         }
 
-        msg = conn->send_next(ctx, conn); //循环从队列中取msg
+        //rsp_send_next
+        msg = conn->send_next(ctx, conn); //循环从队列中取msg组成iov，知道达到上限为止，保证一次尽量装满NC_IOV_MAX字节一起发送
         if (msg == NULL) { //把队列中所有msg取出来，组ciov结构，只要不达到limit上限和NC_IOV_MAX上限即可。
             break;
         }
@@ -915,8 +930,8 @@ msg_send_chain(struct context *ctx, struct conn *conn, struct msg *msg)
 
         TAILQ_REMOVE(&send_msgq, msg, m_tqe);
 
-        if (nsent == 0) {
-            if (msg->mlen == 0) {
+        if (nsent == 0) { 
+            if (msg->mlen == 0) { //说明msg数据发送完毕
                 conn->send_done(ctx, conn, msg);
             }
             continue;
@@ -931,9 +946,9 @@ msg_send_chain(struct context *ctx, struct conn *conn, struct msg *msg)
             }
 
             mlen = mbuf_length(mbuf);
-            if (nsent < mlen) {
+            if (nsent < mlen) {//说明msg中还有未发送完毕的数据
                 /* mbuf was sent partially; process remaining bytes later */
-                mbuf->pos += nsent;
+                mbuf->pos += nsent; //下次从改msg的mbuf->pos处继续发送
                 ASSERT(mbuf->pos < mbuf->last);
                 nsent = 0;
                 break;
@@ -945,7 +960,7 @@ msg_send_chain(struct context *ctx, struct conn *conn, struct msg *msg)
         }
 
         /* message has been sent completely, finalize it */
-        if (mbuf == NULL) {
+        if (mbuf == NULL) { //说明一个msg中的数据已经发送完毕，只有一个msg数据发送完毕才会通过rsp_send_done从队列中摘除
             conn->send_done(ctx, conn, msg);
         }
     }
@@ -998,6 +1013,7 @@ msg_send_chain(struct context *ctx, struct conn *conn, struct msg *msg)
 * server.
 */
 
+//core_core->core_send->msg_send->rsp_send_next
 rstatus_t
 msg_send(struct context *ctx, struct conn *conn)
 {//注意这里的conn是发往后端服务器的conn
@@ -1007,7 +1023,7 @@ msg_send(struct context *ctx, struct conn *conn)
     ASSERT(conn->send_active);
 
     conn->send_ready = 1;
-    do {
+    do { 
         //发往客户端用rsp_send_next，此时的conn是和客户端的连接   发往后端服务器用req_send_next，此时的连接是server_conn    msg_send或者msg_send_chain中执行
         msg = conn->send_next(ctx, conn); //取出需要发送的msg队列上的一条msg
         if (msg == NULL) {
@@ -1015,7 +1031,7 @@ msg_send(struct context *ctx, struct conn *conn)
             return NC_OK;
         }
 
-        status = msg_send_chain(ctx, conn, msg);
+        status = msg_send_chain(ctx, conn, msg); //发送
         if (status != NC_OK) {
             return status;
         }

@@ -670,7 +670,7 @@ server_pool_hash(struct server_pool *pool, uint8_t *key, uint32_t keylen)
     return pool->key_hash((char *)key, keylen); //YANG ADD XXXXXXXXXX TODO，分配这里需要改为何redis一致
 }
 
-//根据key选举后端指定idx的服务器  
+//根据key选举后端指定idx的服务器     memcached的slot计算
 uint32_t
 server_pool_idx(struct server_pool *pool, uint8_t *key, uint32_t keylen)
 {
