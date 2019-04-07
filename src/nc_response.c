@@ -285,7 +285,8 @@ rsp_filter(struct context *ctx, struct conn *conn, struct msg *msg)
         return true;
     }
 
-    if (pmsg->swallow) {
+    if (pmsg->swallow) { //如果客户端请求已经转到后端取了还没有得到应答，这时候proxy和客户端关闭连接，则会走到这里
+        //说明和客户端的链接已经关闭了，但是后端这时候才应答，因此直接释放这些后端应答的msg
         conn->swallow_msg(conn, pmsg, msg);
 
         conn->dequeue_outq(ctx, conn, pmsg);

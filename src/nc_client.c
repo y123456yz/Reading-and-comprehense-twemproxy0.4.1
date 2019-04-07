@@ -169,6 +169,7 @@ client_close(struct context *ctx, struct conn *conn)
                       msg->type);
             req_put(msg);
         } else {
+            //如果客户端请求已经转到后端取了还没有得到应答，这时候proxy和客户端关闭连接，则会走到这里
             msg->swallow = 1;
 
             ASSERT(msg->request);
@@ -191,3 +192,4 @@ client_close(struct context *ctx, struct conn *conn)
 
     conn_put(conn);
 }
+

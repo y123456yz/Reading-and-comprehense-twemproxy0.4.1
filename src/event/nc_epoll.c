@@ -331,6 +331,7 @@ event_loop_stats(event_stats_cb_t cb, void *arg)
             break;
         }
 
+        //stats_loop_callback
         cb(st, &n);
     }
 

@@ -394,7 +394,7 @@ server_close(struct context *ctx, struct conn *conn)
          * 1. request is tagged as noreply or,
          * 2. client has already closed its connection
          */
-        if (msg->swallow || msg->noreply) {
+        if (msg->swallow || msg->noreply) { //该msg对应的客户端fd已经关闭了，则直接put
             log_debug(LOG_INFO, "close s %d swallow req %"PRIu64" len %"PRIu32
                       " type %d", conn->sd, msg->id, msg->mlen, msg->type);
             req_put(msg);
